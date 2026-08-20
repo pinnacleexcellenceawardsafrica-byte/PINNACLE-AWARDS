@@ -1,0 +1,2191 @@
+{% load static %}
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if site_settings.site_name %}{{ site_settings.site_name }}{% else %}Pinnacle Excellence Awards Africa{% endif %} — Celebrating Excellence. Inspiring Impact. Honouring Greatness.</title>
+  <meta name="description" content="Pinnacle Excellence Awards Africa — celebrating excellence, inspiring impact, and honouring greatness across the continent. Discover nominees, explore categories, and cast your vote.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Paystack Script -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  <style>
+    :root{
+      --dark:#0F1A14;
+      --green-deep:#1A3327;
+      --green:#2B6E4B;
+      --green-bright:#2EB872;
+      --gold:#F5C842;
+      --gold-soft:#FFE57A;
+      --ivory:#FFFFFF;
+      --white:#FFFFFF;
+      --ink:#0F1A14;
+      --muted:#5C6A62;
+      --line:rgba(0,0,0,.09);
+      --line-light:rgba(255,255,255,.14);
+
+      --font-display:'Quicksand',sans-serif;
+      --font-body:'Quicksand',sans-serif;
+
+      --pad-lg:3.4rem;
+      --pad-md:2.4rem;
+      --ease:all .28s cubic-bezier(.4,0,.2,1);
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4,h5,h6,.font-display{font-family:var(--font-display);font-weight:700;letter-spacing:-0.02em;}
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;border-radius:0 !important;}
+    ::selection{background:var(--gold-soft);color:var(--dark);}
+
+    .eyebrow{
+      font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+      color:var(--green);display:inline-flex;align-items:center;gap:.55rem;
+    }
+    .eyebrow::before{content:"";width:22px;height:2px;background:var(--gold);display:inline-block;}
+    .eyebrow.on-dark{color:var(--gold-soft);}
+    .eyebrow.on-dark::before{background:var(--gold-soft);}
+
+    .section-pad{padding:var(--pad-lg) 0;}
+    @media(max-width:767px){.section-pad{padding:var(--pad-md) 0;}}
+
+    .bg-dark{background:var(--dark);color:var(--ivory);}
+    .bg-dark .muted{color:#9FB1A8;}
+    .bg-green{background:var(--green-deep);color:var(--ivory);}
+    .bg-soft{background:var(--ivory);}
+    .text-gold{color:var(--gold)!important;}
+    .text-green{color:var(--green)!important;}
+    .muted{color:var(--muted);}
+    .section-title{font-size:clamp(1.7rem,3.1vw,2.5rem);line-height:1.08;margin-bottom:.6rem;font-family:var(--font-display);font-weight:700;letter-spacing:-0.02em;}
+    .section-sub{font-size:.98rem;color:var(--muted);max-width:560px;}
+    .bg-dark .section-sub,.bg-green .section-sub{color:#B7C6BE;}
+    .rule{height:1px;background:var(--line);width:100%;}
+    .bg-dark .rule,.bg-green .rule{background:var(--line-light);}
+
+    .skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:var(--dark);padding:.6rem 1rem;z-index:2000;font-weight:700;}
+    .skip-link:focus{left:0;}
+    a:focus-visible,button:focus-visible,.form-control:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}}
+
+    .btn{font-weight:700;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;padding:.72rem 1.5rem;border-radius:50px;border:1px solid transparent;transition:var(--ease);font-family:var(--font-body);}
+    .btn-gold{background:var(--gold);color:var(--dark);}
+    .btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px);box-shadow:0 8px 18px rgba(245,200,66,.45);}
+    .btn-outline-ivory{background:transparent;color:var(--ivory);border-color:rgba(255,255,255,.35);}
+    .btn-outline-ivory:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+    .btn-outline-ink{background:transparent;color:var(--ink);border-color:rgba(0,0,0,.2);}
+    .btn-outline-ink:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);}
+    .btn-green{background:var(--green-deep);color:var(--ivory);}
+    .btn-green:hover{background:var(--green-bright);color:var(--dark);transform:translateY(-2px);}
+    .btn-sm2{padding:.5rem 1.1rem;font-size:.68rem;}
+    .btn:disabled,.btn.disabled{opacity:.55;cursor:not-allowed;transform:none!important;}
+    .btn-link-underline{font-weight:700;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);border-bottom:1px solid var(--green);padding-bottom:2px;transition:var(--ease);}
+    .btn-link-underline:hover{color:var(--gold);border-color:var(--gold);}
+
+    .topbar{background:rgba(15,26,20,0.85);backdrop-filter:blur(12px);color:#B7C6BE;font-size:.78rem;padding:.5rem 0;position:relative;z-index:10;}
+    .topbar i{color:var(--gold-soft);margin-right:.4rem;}
+    .topbar .social a{color:#B7C6BE;margin-left:.9rem;transition:var(--ease);}
+    .topbar .social a:hover{color:var(--gold);}
+
+    .navbar-moika{padding:.85rem 0;transition:var(--ease);position:fixed;top:26px;left:0;right:0;z-index:1200;background:transparent;}
+    .navbar-moika.scrolled{top:0;background:rgba(15,26,20,0.92);backdrop-filter:blur(16px);padding:.6rem 0;box-shadow:0 4px 18px rgba(0,0,0,.25);}
+    .navbar-brand-moika{font-weight:700;font-size:1.2rem;letter-spacing:-0.02em;color:var(--ivory);font-family:var(--font-display);}
+    .navbar-brand-moika span{color:var(--gold);}
+    .navbar-brand-moika .sub{display:block;font-size:.45rem;letter-spacing:.2em;font-weight:600;color:#9FB1A8;margin-top:-2px;font-family:var(--font-body);}
+    .nav-link-moika{color:var(--ivory);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 .8rem;position:relative;padding:.4rem 0!important;font-family:var(--font-body);}
+    .nav-link-moika::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:var(--ease);}
+    .nav-link-moika:hover::after,.nav-link-moika.active::after{width:100%;}
+    .nav-link-moika:hover{color:var(--gold);}
+    .navbar-toggler-moika{border:0;color:var(--ivory);font-size:1.35rem;background:transparent;}
+    .offcanvas-moika{background:var(--dark);color:var(--ivory);width:270px;}
+    .offcanvas-moika .nav-link-moika{display:block;margin:0;padding:.85rem 0!important;border-bottom:1px solid var(--line-light);}
+
+    .hero-moika{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--ivory);
+      overflow:hidden;
+      padding-top:80px;
+      padding-bottom:40px;
+    }
+
+    .hero-slider{
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+
+    .hero-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transition:opacity 1.2s ease-in-out;
+      transform:scale(1.05);
+    }
+
+    .hero-slide.active{
+      opacity:1;
+      transform:scale(1);
+    }
+
+    .hero-slide::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(15,26,20,0.80) 0%, rgba(15,26,20,0.50) 50%, rgba(15,26,20,0.30) 100%);
+      z-index:1;
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:radial-gradient(ellipse at center, rgba(15,26,20,0.2) 0%, rgba(15,26,20,0.6) 100%);
+      z-index:1;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      max-width:820px;
+      padding:0 20px;
+    }
+
+    .hero-edition{
+      font-size:.7rem;
+      letter-spacing:.25em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.5);
+      font-weight:600;
+      font-family:var(--font-body);
+      margin-bottom:1rem;
+    }
+
+    .hero-title{
+      font-size:clamp(2.6rem,6vw,4.8rem);
+      line-height:1.04;
+      font-family:var(--font-display);
+      font-weight:700;
+      letter-spacing:-0.02em;
+      margin-bottom:.4rem;
+    }
+
+    .hero-title .line2{
+      color:var(--gold);
+      display:block;
+    }
+
+    .hero-tagline{
+      font-size:clamp(1rem,1.4vw,1.3rem);
+      color:rgba(255,255,255,0.7);
+      font-weight:400;
+      letter-spacing:0.04em;
+      margin-bottom:2rem;
+      font-family:var(--font-body);
+      line-height:1.6;
+    }
+
+    .hero-tagline .gold{
+      color:var(--gold);
+      font-weight:600;
+    }
+
+    .hero-tagline .dot{
+      color:rgba(255,255,255,0.25);
+      margin:0 8px;
+      font-weight:300;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      justify-content:center;
+      margin-bottom:0;
+    }
+
+    .hero-buttons .btn{
+      padding:.9rem 2.6rem;
+      font-size:.78rem;
+      letter-spacing:.1em;
+      border-radius:50px;
+      min-width:140px;
+    }
+
+    .hero-buttons .btn-gold{
+      background:var(--gold);
+      color:var(--dark);
+      box-shadow:0 6px 28px rgba(245,200,66,0.3);
+    }
+
+    .hero-buttons .btn-gold:hover{
+      background:var(--gold-soft);
+      box-shadow:0 10px 40px rgba(245,200,66,0.45);
+      transform:translateY(-3px);
+    }
+
+    .hero-buttons .btn-outline-ivory{
+      border-color:rgba(255,255,255,0.3);
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(4px);
+    }
+
+    .hero-buttons .btn-outline-ivory:hover{
+      background:rgba(255,255,255,0.12);
+      border-color:var(--gold);
+      color:var(--gold);
+    }
+
+    .hero-countdown{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:0.8rem;
+      margin-top:1.8rem;
+    }
+
+    .hero-countdown-label{
+      font-weight:500;
+      font-size:.65rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.4);
+      margin-right:.2rem;
+    }
+
+    .hcd-unit{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:6px;
+      padding:.25rem .65rem;
+      min-width:48px;
+    }
+
+    .hcd-unit .num{
+      color:#FFFFFF;
+      font-weight:600;
+      font-size:1.3rem;
+      font-family:var(--font-display);
+      line-height:1;
+    }
+
+    .hcd-unit .lbl2{
+      color:rgba(255,255,255,0.35);
+      font-size:.45rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      margin-top:.05rem;
+      font-weight:500;
+    }
+
+    .hcd-colon{
+      color:rgba(255,255,255,0.25);
+      font-weight:300;
+      font-size:1rem;
+    }
+
+    .hero-scroll-indicator{
+      position:absolute;
+      bottom:28px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:2;
+      color:rgba(255,255,255,0.25);
+      animation:bounceDown 2s infinite;
+      font-size:1rem;
+    }
+
+    @keyframes bounceDown{
+      0%,100%{transform:translateX(-50%) translateY(0);}
+      50%{transform:translateX(-50%) translateY(8px);}
+    }
+
+    @media(max-width:992px){
+      .hero-buttons .btn{
+        padding:.8rem 2rem;
+        font-size:.72rem;
+        min-width:120px;
+      }
+    }
+
+    @media(max-width:768px){
+      .hero-title{font-size:clamp(2.2rem,7vw,3.2rem);}
+      .hero-tagline{font-size:.95rem;}
+      .hero-buttons{gap:10px;}
+      .hero-buttons .btn{
+        padding:.7rem 1.6rem;
+        font-size:.7rem;
+        min-width:100px;
+        flex:1 1 auto;
+      }
+      .hero-countdown{gap:.5rem;}
+      .hcd-unit{min-width:40px;padding:.2rem .45rem;}
+      .hcd-unit .num{font-size:1rem;}
+      .hero-edition{font-size:.6rem;}
+    }
+
+    @media(max-width:480px){
+      .hero-title{font-size:clamp(1.8rem,8vw,2.6rem);}
+      .hero-tagline{font-size:.85rem;line-height:1.5;}
+      .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+        width:100%;
+      }
+      .hero-buttons .btn{
+        padding:.65rem 1.2rem;
+        font-size:.68rem;
+        min-width:0;
+        width:100%;
+        max-width:280px;
+        justify-content:center;
+      }
+      .hcd-unit{min-width:34px;padding:.15rem .35rem;}
+      .hcd-unit .num{font-size:.85rem;}
+      .hero-countdown-label{font-size:.5rem;}
+      .hero-edition{font-size:.55rem;letter-spacing:.15em;}
+    }
+
+    @media(max-width:360px){
+      .hero-title{font-size:clamp(1.5rem,10vw,2rem);}
+      .hero-tagline{font-size:.75rem;}
+      .hero-buttons .btn{
+        font-size:.6rem;
+        padding:.55rem 1rem;
+      }
+      .hcd-unit{min-width:28px;padding:.1rem .25rem;}
+      .hcd-unit .num{font-size:.7rem;}
+      .hcd-unit .lbl2{font-size:.35rem;}
+    }
+
+    .ticker{background:var(--gold);color:var(--dark);overflow:hidden;white-space:nowrap;border-top:1px solid var(--dark);border-bottom:1px solid var(--dark);}
+    .ticker-track{display:inline-flex;gap:2.5rem;padding:.55rem 0;animation:tickerMove 26s linear infinite;width:max-content;}
+    .ticker:hover .ticker-track{animation-play-state:paused;}
+    .ticker-item{font-size:.78rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem;}
+    .ticker-item i{font-size:.7rem;}
+    @keyframes tickerMove{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+    .stats-block{background:var(--green-deep);color:var(--ivory);padding:2.4rem 0;}
+    .stat-cell{text-align:center;padding:.6rem;position:relative;}
+    .stat-cell i{font-size:1.5rem;color:var(--gold-soft);margin-bottom:.5rem;display:block;}
+    .stat-num{font-weight:700;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1;font-family:var(--font-display);}
+    .stat-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#BFD3C7;margin-top:.4rem;font-weight:600;}
+    .stat-cell:not(:last-child)::after{content:"";position:absolute;right:0;top:18%;bottom:18%;width:1px;background:var(--line-light);}
+    @media(max-width:767px){.stat-cell:not(:last-child)::after{display:none;}}
+
+    .featured-wrap{border:1px solid var(--line);padding:2.1rem 1.4rem 1.8rem;background:var(--white);}
+    .filter-pills{display:flex;flex-wrap:wrap;gap:.55rem;}
+    .filter-pill{border:1px solid rgba(0,0,0,.15);background:transparent;color:var(--ink);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;padding:.45rem 1rem;border-radius:30px;cursor:pointer;transition:var(--ease);}
+    .filter-pill.active,.filter-pill:hover{background:var(--green-deep);color:var(--ivory);border-color:var(--green-deep);}
+
+    .nominee-scroll-outer{
+      overflow:hidden;
+      padding:10px 2px;
+      position:relative;
+      min-height:200px;
+    }
+
+    .nominee-scroll-outer::before,.nominee-scroll-outer::after{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:48px;
+      z-index:2;
+      pointer-events:none;
+    }
+    .nominee-scroll-outer::before{left:0;background:linear-gradient(90deg,var(--white),transparent);}
+    .nominee-scroll-outer::after{right:0;background:linear-gradient(270deg,var(--white),transparent);}
+
+    .nominee-scroll-track{
+      display:flex;
+      gap:16px;
+      width:max-content;
+      animation:nomineeScrollLeft 55s linear infinite;
+    }
+
+    .nominee-scroll-outer:hover .nominee-scroll-track{animation-play-state:paused;}
+
+    .nominee-scroll-outer.loop-end .nominee-scroll-track{
+      animation:nomineeScrollLeft 55s linear infinite;
+    }
+
+    @keyframes nomineeScrollLeft{
+      0%{transform:translateX(0);}
+      100%{transform:translateX(-50%);}
+    }
+
+    .nominee-scroll-outer.single .nominee-scroll-track{
+      animation:none;
+      justify-content:center;
+    }
+
+    .nominee-scroll-outer.single .nominee-card{
+      width:280px;
+    }
+
+    .nominee-scroll-outer.few .nominee-scroll-track{
+      animation:none;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .nominee-scroll-outer.few .nominee-card{
+      width:260px;
+    }
+
+    .nominee-scroll-track .nominee-card{
+      width:240px;
+      flex:0 0 auto;
+    }
+
+    .nominee-card{background:#FAFCFA;border:1px solid #EDF3EF;height:100%;transition:var(--ease);display:flex;flex-direction:column;}
+    .nominee-card:hover{box-shadow:0 14px 30px rgba(16,26,22,.12);transform:translateY(-4px);border-color:var(--green-bright);}
+    .nominee-card .img-wrap{position:relative;overflow:hidden;aspect-ratio:4/5;}
+    .nominee-card .img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+    .nominee-card:hover .img-wrap img{transform:scale(1.07);}
+    .nominee-badge{position:absolute;top:.65rem;left:.65rem;background:var(--dark);color:var(--gold-soft);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.28rem .6rem;}
+    .nominee-card .body{padding:1rem 1.1rem 1.15rem;text-align:center;}
+    .nominee-card .cat{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;}
+    .nominee-card .name{font-weight:700;font-size:1.02rem;margin:.3rem 0 .4rem;font-family:var(--font-display);}
+    .nominee-card .desc{font-size:.82rem;color:var(--muted);margin-bottom:.75rem;min-height:2.4em;}
+    .vote-progress-wrap{margin-bottom:.55rem;}
+    .vote-progress-bar{height:6px;background:#E8EDE9;border-radius:10px;overflow:hidden;}
+    .vote-progress-fill{height:100%;background:var(--green-bright);border-radius:10px;transition:width .5s ease;}
+    .vote-progress-label{font-size:.64rem;color:var(--muted);margin-top:.28rem;text-align:right;}
+    .vote-btn{width:100%;background:var(--dark);color:var(--ivory);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.62rem;border:1px solid var(--dark);border-radius:4px;transition:var(--ease);cursor:pointer;}
+    .vote-btn:hover:not(:disabled){background:var(--green-bright);border-color:var(--green-bright);color:var(--dark);}
+    .vote-btn.voted{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+    .vote-btn:disabled{cursor:not-allowed;opacity:.65;}
+
+    .rank-row{display:flex;align-items:center;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line-light);transition:var(--ease);}
+    .rank-row:hover{padding-left:.4rem;background:rgba(255,255,255,.03);}
+    .rank-num{font-weight:700;font-size:1.2rem;color:var(--gold-soft);width:2.1rem;font-family:var(--font-display);}
+    .rank-photo{width:44px;height:44px;object-fit:cover;flex-shrink:0;border-radius:50%!important;}
+    .rank-name{font-weight:700;font-size:.92rem;color:var(--ivory);font-family:var(--font-display);}
+    .rank-cat{font-size:.72rem;color:#9FB1A8;}
+    .rank-move{margin-left:auto;font-size:.74rem;font-weight:700;display:flex;align-items:center;gap:.25rem;}
+    .rank-move.up{color:var(--green-bright);}
+    .rank-move.down{color:#E08585;}
+    .rank-move.new{color:var(--gold);}
+
+    .category-select{width:100%;background:var(--white);border:1px solid var(--line);padding:.68rem .9rem;font-weight:700;font-size:.85rem;border-radius:4px;color:var(--ink);margin-bottom:1rem;font-family:var(--font-body);}
+    .category-scroll-outer{height:380px;overflow:hidden;position:relative;border:1px solid var(--line);background:var(--white);}
+    .category-scroll-outer::before,.category-scroll-outer::after{content:"";position:absolute;left:0;right:0;height:34px;z-index:2;pointer-events:none;}
+    .category-scroll-outer::before{top:0;background:linear-gradient(var(--white),transparent);}
+    .category-scroll-outer::after{bottom:0;background:linear-gradient(transparent,var(--white));}
+    .category-scroll-track-v{display:flex;flex-direction:column;width:100%;animation:catScrollUp 24s linear infinite;}
+    .category-scroll-outer:hover .category-scroll-track-v{animation-play-state:paused;}
+    @keyframes catScrollUp{0%{transform:translateY(0);}100%{transform:translateY(-50%);}}
+    .category-pill-row{padding:.9rem 1.1rem;border-bottom:1px solid var(--line);cursor:pointer;transition:var(--ease);}
+    .category-pill-row:hover{background:#F2F6F3;}
+    .category-pill-row.active{background:var(--green-deep);}
+    .category-pill-row.active .grp,.category-pill-row.active .nm2{color:var(--ivory);}
+    .category-pill-row .grp{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;}
+    .category-pill-row .nm2{font-weight:700;font-size:.88rem;color:var(--ink);font-family:var(--font-display);}
+
+    .category-detail-panel{background:var(--white);border:1px solid var(--line);padding:1.7rem;min-height:380px;}
+    .category-detail-panel .grp2{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+    .category-detail-panel h3{margin:.45rem 0 .6rem;font-size:1.5rem;font-family:var(--font-display);}
+    
+    .cd-nominee-scroll-outer{
+      overflow:hidden;
+      padding:8px 2px;
+      position:relative;
+      margin-top:1.2rem;
+      min-height:200px;
+      display:flex;
+      align-items:center;
+      border:1px solid #EDF3EF;
+      border-radius:4px;
+      background:#FAFCFA;
+    }
+    .cd-nominee-scroll-outer::before,.cd-nominee-scroll-outer::after{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:32px;
+      z-index:2;
+      pointer-events:none;
+    }
+    .cd-nominee-scroll-outer::before{left:0;background:linear-gradient(90deg,var(--white),transparent);}
+    .cd-nominee-scroll-outer::after{right:0;background:linear-gradient(270deg,var(--white),transparent);}
+    .cd-nominee-track{
+      display:flex;
+      gap:12px;
+      width:max-content;
+      animation:cdNomineeScroll 34s linear infinite;
+      align-items:center;
+      padding:0 4px;
+    }
+    .cd-nominee-scroll-outer:hover .cd-nominee-track{animation-play-state:paused;}
+    @keyframes cdNomineeScroll{
+      0%{transform:translateX(0);}
+      100%{transform:translateX(-50%);}
+    }
+    .cd-mini-card{
+      width:148px;
+      flex:0 0 auto;
+      background:var(--white);
+      border:1px solid #EDF3EF;
+      transition:var(--ease);
+      border-radius:4px;
+    }
+    .cd-mini-card:hover{border-color:var(--green-bright);box-shadow:0 8px 18px rgba(16,26,22,.1);}
+    .cd-mini-card .img-wrap{position:relative;overflow:hidden;aspect-ratio:1/1;border-radius:4px 4px 0 0;}
+    .cd-mini-card .img-wrap img{width:100%;height:100%;object-fit:cover;}
+    .cd-mini-card .body{padding:.6rem .65rem .75rem;text-align:center;}
+    .cd-mini-card .name{font-weight:700;font-size:.74rem;margin-bottom:.4rem;line-height:1.2;font-family:var(--font-display);}
+    .cd-mini-progress{height:4px;background:#E8EDE9;border-radius:10px;overflow:hidden;margin-bottom:.3rem;}
+    .cd-mini-progress-fill{height:100%;background:var(--green-bright);border-radius:10px;}
+    .cd-mini-votes{font-size:.58rem;color:var(--muted);margin-bottom:.5rem;}
+    .cd-mini-vote-btn{width:100%;background:var(--dark);color:var(--ivory);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:.4rem;border:1px solid var(--dark);border-radius:4px;transition:var(--ease);cursor:pointer;}
+    .cd-mini-vote-btn:hover:not(:disabled){background:var(--green-bright);border-color:var(--green-bright);color:var(--dark);}
+    .cd-mini-vote-btn.voted{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+    .cd-mini-vote-btn:disabled{cursor:not-allowed;opacity:.65;}
+
+    .purpose-block{background:var(--green-deep);color:var(--ivory);display:flex;align-items:center;gap:1.1rem;padding:1.5rem 1.6rem;height:100%;}
+    .purpose-block i{font-size:1.7rem;color:var(--gold-soft);flex-shrink:0;}
+    .purpose-block .k{font-size:.78rem;color:#BFD3C7;margin-bottom:.15rem;}
+    .purpose-block .v{font-weight:700;font-size:1.05rem;font-family:var(--font-display);}
+
+    .judge-card{text-align:center;}
+    .judge-card img{width:104px;height:104px;border-radius:50%!important;object-fit:cover;margin:0 auto .75rem;border:3px solid var(--gold-soft);}
+    .judge-card h5{font-size:.94rem;margin-bottom:.1rem;font-family:var(--font-display);font-weight:700;}
+    .judge-card .role{font-size:.72rem;color:var(--green);font-weight:700;margin-bottom:.4rem;}
+    .judge-card p{font-size:.8rem;color:var(--muted);}
+
+    .method-step{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line-light);}
+    .method-num{font-weight:700;font-size:1.2rem;color:var(--gold);width:2.2rem;flex-shrink:0;font-family:var(--font-display);}
+    .method-step h5{font-size:.94rem;margin-bottom:.2rem;color:var(--ivory);font-family:var(--font-display);font-weight:700;}
+    .method-step p{font-size:.82rem;color:#9FB1A8;margin-bottom:0;}
+
+    .news-card{background:var(--white);overflow:hidden;transition:var(--ease);height:100%;border:1px solid #E8F0EC;}
+    .news-card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(46,184,114,.1);border-color:var(--green-bright);}
+    .news-card img{width:100%;height:170px;object-fit:cover;}
+    .news-card .news-body{padding:1.1rem 1.2rem;}
+    .news-card .news-body .tag{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green-bright);font-weight:700;}
+    .news-card .news-body h5{font-size:1rem;font-weight:700;color:var(--ink);margin:.4rem 0;font-family:var(--font-display);}
+    .news-card .news-body p{font-size:.83rem;color:var(--muted);margin-bottom:.7rem;line-height:1.55;}
+    .news-card .btn-read{color:var(--green);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid transparent;transition:var(--ease);}
+    .news-card .btn-read:hover{border-bottom-color:var(--green);color:var(--green-deep);}
+
+    .ceremony-detail{display:flex;gap:.85rem;padding:.65rem 0;border-bottom:1px solid var(--line-light);}
+    .ceremony-detail i{color:var(--gold);font-size:1.05rem;width:22px;}
+    .ceremony-detail .lbl{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#9FB1A8;}
+    .ceremony-detail .val{font-weight:700;color:var(--ivory);font-size:.92rem;font-family:var(--font-display);}
+
+    .infinity-scroll{overflow:hidden;position:relative;width:100%;padding:12px 0;}
+    .scroll-track{display:flex;gap:16px;width:max-content;animation:scrollLeft 30s linear infinite;}
+    .scroll-track:hover{animation-play-state:paused;}
+    .scroll-track-right{animation:scrollRight 30s linear infinite;}
+    .scroll-item{flex:0 0 auto;width:230px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);transition:transform .3s ease;}
+    .scroll-item:hover{transform:scale(1.04);}
+    .scroll-item img{width:100%;height:170px;object-fit:cover;display:block;}
+    @keyframes scrollLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    @keyframes scrollRight{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+
+    .partner-tile{display:flex;align-items:center;justify-content:center;height:74px;border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:.78rem;letter-spacing:.04em;text-align:center;padding:.5rem;background:var(--white);transition:var(--ease);}
+    .partner-tile:hover{border-color:var(--green-bright);color:var(--green);}
+
+    .form-control-moika{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.28);border-radius:0;color:var(--ivory);padding:.6rem .1rem;font-size:.9rem;font-family:var(--font-body);}
+    .form-control-moika::placeholder{color:#7C8B83;}
+    .form-control-moika:focus{background:transparent;color:var(--ivory);border-bottom-color:var(--gold);box-shadow:none;}
+    .form-label-moika{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:.3rem;font-family:var(--font-body);}
+
+    .edition-tab{background:transparent;border:1px solid rgba(0,0,0,.15);color:var(--ink);padding:.5rem 1.2rem;font-family:var(--font-display);font-weight:700;font-size:.82rem;cursor:pointer;transition:var(--ease);}
+    .edition-tab.active,.edition-tab:hover{background:var(--green-deep);color:var(--ivory);border-color:var(--green-deep);}
+    .hof-winner{background:var(--white);border:1px solid var(--line);padding:1rem;display:flex;gap:.85rem;align-items:center;transition:var(--ease);}
+    .hof-winner:hover{border-color:var(--gold);}
+    .hof-winner img{width:54px;height:54px;object-fit:cover;border-radius:50%!important;}
+    .hof-winner .cat{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+    .hof-winner .nm{font-weight:700;font-size:.9rem;font-family:var(--font-display);}
+
+    .winner-card{background:var(--dark);border:1px solid var(--gold);padding:2rem;text-align:center;}
+    .winner-card .goldline{color:var(--gold);font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;}
+    .winner-card img{width:100px;height:100px;border-radius:50%!important;object-fit:cover;margin:1rem auto;border:3px solid var(--gold);}
+    .winner-card h3{color:var(--ivory);font-size:1.5rem;margin-bottom:.25rem;font-family:var(--font-display);font-weight:700;}
+    .winner-card .wcat{color:var(--gold-soft);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;}
+
+    .faq-badge{background:var(--green-deep);color:var(--ivory);width:100%;min-height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.6rem;}
+    .faq-badge i{font-size:3rem;color:var(--gold);}
+    .faq-badge span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#BFD3C7;font-weight:700;}
+    .faq-item{border-bottom:1px solid var(--line);padding:.7rem 0;}
+    .faq-item:last-child{border-bottom:none;}
+    .faq-question{font-weight:700;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;font-size:.94rem;font-family:var(--font-display);}
+    .faq-question i{transition:.3s;color:var(--green);}
+    .faq-question.open i{transform:rotate(180deg);color:var(--gold);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s ease;color:var(--muted);padding:0 .1rem;font-size:.86rem;}
+    .faq-answer.open{max-height:220px;padding:.5rem .1rem .7rem;}
+
+    .final-cta{background:var(--green-deep);color:var(--ivory);text-align:center;border-top:3px solid var(--gold);}
+
+    .footer-moika{background:#0C1410;color:#9FB1A8;padding:3rem 0 1.2rem;}
+    .footer-moika h6{color:var(--gold-soft);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;font-weight:700;}
+    .footer-moika a.flink{display:block;color:#9FB1A8;font-size:.86rem;padding:.3rem 0;transition:var(--ease);}
+    .footer-moika a.flink:hover{color:var(--gold);padding-left:.25rem;}
+    .footer-brand{font-weight:700;font-size:1.2rem;color:var(--ivory);font-family:var(--font-display);letter-spacing:-0.02em;}
+    .footer-brand span{color:var(--gold);}
+    .footer-brand .sub{display:block;font-size:.45rem;letter-spacing:.2em;font-weight:600;color:#6C7B72;margin-top:-2px;font-family:var(--font-body);}
+    .social-icon{width:34px;height:34px;border:1px solid var(--line-light);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#9FB1A8;transition:var(--ease);}
+    .social-icon:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+    .newsletter-box{position:relative;max-width:320px;}
+    .newsletter-box input{background:#152018;border:1px solid var(--line-light);color:var(--ivory);padding:.65rem 5.4rem .65rem 1rem;font-size:.85rem;width:100%;font-family:var(--font-body);}
+    .newsletter-box input::placeholder{color:#6C7B72;}
+    .newsletter-box button{position:absolute;top:3px;right:3px;bottom:3px;padding:0 .9rem;}
+
+    .vote-float{position:fixed;bottom:24px;right:24px;z-index:999;background:var(--dark);color:#fff;padding:.7rem 1.1rem .7rem .9rem;box-shadow:0 10px 28px rgba(0,0,0,.22);display:none;align-items:center;gap:.7rem;cursor:pointer;border:none;transition:var(--ease);}
+    .vote-float.visible{display:flex;}
+    .vote-float:hover{transform:scale(1.05);background:var(--green-deep);}
+    .vote-float .badge-vote{background:var(--gold);color:var(--dark);padding:1px 9px;font-weight:700;font-size:.8rem;}
+    .vote-float i{font-size:1.25rem;color:var(--gold-soft);}
+
+    /* ============================================================
+       MODAL - FIXED POSITIONING & SCROLLING
+       ============================================================ */
+    .modal-moika .modal-content {
+      background: var(--white);
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .modal-moika .modal-header {
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      z-index: 10;
+      border-radius: 12px 12px 0 0;
+      flex-shrink: 0;
+    }
+    .modal-moika .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .modal-moika .modal-footer {
+      border-top: 1px solid var(--line);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      bottom: 0;
+      background: var(--white);
+      z-index: 10;
+      border-radius: 0 0 12px 12px;
+      flex-shrink: 0;
+    }
+    .modal-moika .modal-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .modal-moika .btn-close {
+      font-size: 0.8rem;
+    }
+
+    /* Fix modal positioning - above navbar */
+    .modal {
+      z-index: 1300 !important;
+    }
+    .modal-backdrop {
+      z-index: 1250 !important;
+    }
+
+    /* Modal dialog centering */
+    .modal-dialog-centered {
+      display: flex;
+      align-items: center;
+      min-height: calc(100% - 1rem);
+    }
+    .modal-dialog {
+      max-width: 480px;
+      margin: 1.75rem auto;
+    }
+    @media (max-width: 575.98px) {
+      .modal-dialog {
+        margin: 0.5rem;
+        width: calc(100% - 1rem);
+        max-width: 100%;
+      }
+      .modal-moika .modal-content {
+        max-height: 92vh;
+        border-radius: 10px;
+      }
+      .modal-moika .modal-body {
+        padding: 1rem;
+      }
+      .modal-moika .modal-header,
+      .modal-moika .modal-footer {
+        padding: 0.75rem 1rem;
+      }
+      .modal-moika .modal-title {
+        font-size: 0.95rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .modal-dialog {
+        margin: 0.25rem;
+        width: calc(100% - 0.5rem);
+      }
+      .modal-moika .modal-content {
+        border-radius: 8px;
+        max-height: 95vh;
+      }
+      .modal-moika .modal-body {
+        padding: 0.75rem;
+      }
+      .modal-moika .modal-header,
+      .modal-moika .modal-footer {
+        padding: 0.5rem 0.75rem;
+      }
+      .modal-moika .modal-title {
+        font-size: 0.85rem;
+      }
+    }
+
+    .search-input{background:transparent;border:none;border-bottom:2px solid var(--gold);border-radius:0;font-size:1.15rem;padding:.5rem 0;color:var(--ink);font-family:var(--font-body);}
+    .search-input:focus{box-shadow:none;background:transparent;color:var(--ink);}
+    .search-result-item{padding:.7rem 0;border-bottom:1px solid var(--line);}
+    .search-result-item .k{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;}
+
+    .toast-moika{position:fixed;bottom:1.3rem;left:1.3rem;z-index:2000;background:var(--dark);color:var(--ivory);padding:.85rem 1.2rem;border-radius:2px;border-left:3px solid var(--green-bright);box-shadow:0 10px 26px rgba(0,0,0,.3);transform:translateY(120%);opacity:0;transition:var(--ease);font-size:.85rem;max-width:300px;}
+    .toast-moika.show{transform:translateY(0);opacity:1;}
+
+    .scroll-top-btn{position:fixed;bottom:24px;left:24px;z-index:999;width:46px;height:46px;border-radius:50%;background:var(--gold);color:var(--dark);border:none;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 10px 24px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(14px);transition:var(--ease);cursor:pointer;}
+    .scroll-top-btn.visible{opacity:1;visibility:visible;transform:translateY(0);}
+    .scroll-top-btn:hover{background:var(--gold-soft);transform:translateY(-3px);}
+
+    .reveal{opacity:0;transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);will-change:transform,opacity;}
+    .reveal-up{transform:translateY(64px);}
+    .reveal-left{transform:translateX(-72px);}
+    .reveal-right{transform:translateX(72px);}
+    .reveal-scale{transform:scale(.94);}
+    .reveal.revealed{opacity:1;transform:translate(0,0) scale(1);}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+    @media(max-width:575px){.section-pad{padding:2.1rem 0;}}
+    .wow{visibility:hidden;}
+
+    .section-hidden{display:none !important;}
+
+    .vote-quantity-input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--ink);
+    }
+    .vote-quantity-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(245,200,66,0.15);
+    }
+    .vote-quantity-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .vote-total-amount {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-top: 8px;
+      text-align: center;
+    }
+    .vote-total-amount span {
+      color: var(--gold);
+      font-size: 1.3rem;
+    }
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- TOPBAR -->
+<div class="topbar d-none d-lg-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center gap-4">
+      <span><i class="fas fa-award"></i>{% if site_settings.site_name %}{{ site_settings.site_name }}{% else %}Pinnacle Excellence Awards Africa{% endif %}</span>
+      <span><i class="fas fa-envelope"></i>info@pinnacleexcellenceawards.com</span>
+    </div>
+    <div class="social">
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-moika" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand-moika" href="#top">PINNACLE <span>EXCELLENCE</span><span class="sub">AWARDS AFRICA</span></a>
+    <button class="navbar-toggler-moika d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="d-none d-lg-flex align-items-center ms-auto">
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item"><a class="nav-link nav-link-moika" href="#nominees">Nominees</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-moika" href="#categories">Categories</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-moika" href="#the-night">The Night</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-moika" href="#hall-of-fame">Winners</a></li>
+      </ul>
+      <button class="btn btn-link p-0 ms-3" style="color:#FFFFFF;font-size:1rem;" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search Pinnacle Excellence Awards">
+        <i class="fas fa-search"></i>
+      </button>
+      <a href="#vote-section" class="btn btn-gold ms-3">Vote Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE OFF CANVAS -->
+<div class="offcanvas offcanvas-start offcanvas-moika" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+  <div class="offcanvas-header">
+    <span class="navbar-brand-moika" id="mobileNavLabel">PINNACLE <span>EXCELLENCE</span><span class="sub">AWARDS AFRICA</span></span>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="nav-link-moika" href="#nominees" data-bs-dismiss="offcanvas">Nominees</a>
+    <a class="nav-link-moika" href="#categories" data-bs-dismiss="offcanvas">Categories</a>
+    <a class="nav-link-moika" href="#the-night" data-bs-dismiss="offcanvas">The Night</a>
+    <a class="nav-link-moika" href="#hall-of-fame" data-bs-dismiss="offcanvas">Winners</a>
+    <a href="#vote-section" class="btn btn-gold w-100 mt-4" data-bs-dismiss="offcanvas">Vote Now</a>
+    <button class="btn btn-outline-ivory w-100 mt-2" data-bs-toggle="modal" data-bs-target="#searchModal" data-bs-dismiss="offcanvas"><i class="fas fa-search me-2"></i>Search</button>
+  </div>
+</div>
+
+<main id="main-content">
+
+<!-- HERO - FULL SCREEN BACKGROUND SLIDER -->
+<section class="hero-moika" id="top">
+  <div class="hero-slider" id="heroSlider">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1600&q=80');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=1600&q=80');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1600&q=80');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1600&q=80');"></div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-edition wow fadeInUp">Pinnacle Excellence Awards Africa 2026</div>
+    
+    <h1 class="hero-title wow fadeInUp" data-wow-delay=".15s">
+      Honouring Those<br>
+      <span class="line2">Who Inspire Greatness</span>
+    </h1>
+    
+    <p class="hero-tagline wow fadeInUp" data-wow-delay=".25s">
+      <span class="gold">Celebrating Excellence</span>
+      <span class="dot">·</span>
+      <span>Inspiring Impact</span>
+      <span class="dot">·</span>
+      <span>Honouring Greatness</span>
+    </p>
+
+    <div class="hero-buttons wow fadeInUp" data-wow-delay=".35s">
+      <a href="#vote-section" class="btn btn-gold">Vote Now</a>
+      <a href="#nominate" class="btn btn-outline-ivory">Nominate</a>
+      <a href="#nominees" class="btn btn-outline-ivory">Explore</a>
+    </div>
+
+    <div class="hero-countdown wow fadeInUp" data-wow-delay=".4s">
+      <span class="hero-countdown-label">{{ site_settings.countdown_label|default:"The Night Begins In" }}</span>
+      <div class="hcd-unit"><span class="num" id="hero-cd-days">00</span><span class="lbl2">Days</span></div>
+      <span class="hcd-colon">:</span>
+      <div class="hcd-unit"><span class="num" id="hero-cd-hrs">00</span><span class="lbl2">Hrs</span></div>
+      <span class="hcd-colon">:</span>
+      <div class="hcd-unit"><span class="num" id="hero-cd-min">00</span><span class="lbl2">Min</span></div>
+      <span class="hcd-colon">:</span>
+      <div class="hcd-unit"><span class="num" id="hero-cd-sec">00</span><span class="lbl2">Sec</span></div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- TICKER - Only show if nominees exist -->
+{% if nominees %}
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack">
+    {% for nominee in nominees|slice:":6" %}
+      <span class="ticker-item"><i class="fas fa-award"></i>{{ nominee.name }} — {{ nominee.category.name }}</span>
+    {% endfor %}
+    <span class="ticker-item"><i class="fas fa-fire"></i>Voting Is Live</span>
+    <span class="ticker-item"><i class="fas fa-tags"></i>{{ total_categories }} Categories Open</span>
+    <span class="ticker-item"><i class="fas fa-user-plus"></i>Nominate Someone Today</span>
+  </div>
+</div>
+{% endif %}
+
+<!-- STATS -->
+<section class="stats-block reveal reveal-up">
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-6 col-md-3 stat-cell wow fadeInUp" data-wow-delay=".05s">
+        <i class="fas fa-th-large"></i>
+        <div class="stat-num">{{ total_categories }}</div>
+        <div class="stat-label">Categories</div>
+      </div>
+      <div class="col-6 col-md-3 stat-cell wow fadeInUp" data-wow-delay=".1s">
+        <i class="fas fa-users"></i>
+        <div class="stat-num">{{ total_nominees }}</div>
+        <div class="stat-label">Nominees</div>
+      </div>
+      <div class="col-6 col-md-3 stat-cell wow fadeInUp" data-wow-delay=".15s">
+        <i class="fas fa-star"></i>
+        <div class="stat-num">1</div>
+        <div class="stat-label">Night</div>
+      </div>
+      <div class="col-6 col-md-3 stat-cell wow fadeInUp" data-wow-delay=".2s">
+        <i class="fas fa-trophy"></i>
+        <div class="stat-num">1</div>
+        <div class="stat-label">Legacy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOMINEES SECTION - FIXED SCROLLING -->
+{% if nominees %}
+<section class="section-pad reveal reveal-up" id="nominees">
+  <div class="container">
+    <div class="featured-wrap">
+      <div class="row align-items-end mb-3 wow fadeInUp">
+        <div class="col-lg-7">
+          <span class="eyebrow">Meet The Field</span>
+          <h2 class="section-title mt-2">The Nominees</h2>
+          <p class="section-sub mb-0">Meet the people defining this year's race across Africa.</p>
+        </div>
+      </div>
+      <div class="filter-pills mb-4 wow fadeInUp" id="nomineeFilters">
+        <button class="filter-pill active" data-filter="all">All</button>
+        {% for category in categories %}
+          <button class="filter-pill" data-filter="{{ category.slug }}">{{ category.group }}</button>
+        {% endfor %}
+      </div>
+      <div class="nominee-scroll-outer wow fadeIn" id="nomineeScrollOuter">
+        <div class="nominee-scroll-track" id="nomineeScrollTrack">
+          {% for nominee in nominees %}
+            <div class="nominee-card" data-category="{{ nominee.category.slug }}">
+              <div class="img-wrap">
+                {% if nominee.photo %}
+                  <img src="{{ nominee.photo.url }}" alt="{{ nominee.name }}">
+                {% else %}
+                  <img src="{% static 'img/default-avatar.png' %}" alt="{{ nominee.name }}">
+                {% endif %}
+                <span class="nominee-badge">{{ nominee.group }}</span>
+              </div>
+              <div class="body">
+                <div class="cat">{{ nominee.category.name }}</div>
+                <div class="name">{{ nominee.name }}</div>
+                <p class="desc">{{ nominee.description|truncatechars:80 }}</p>
+                <div class="vote-progress-wrap">
+                  <div class="vote-progress-bar">
+                    <div class="vote-progress-fill" style="width:{% if nominees %}{% widthratio nominee.votes max_votes 100 %}{% else %}0{% endif %}%"></div>
+                  </div>
+                  <div class="vote-progress-label">{{ nominee.votes }} votes</div>
+                </div>
+                <button class="vote-btn" data-nominee="{{ nominee.id }}" data-category="{{ nominee.category.id }}">
+                  Vote — KSH 10
+                </button>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="text-center mt-4 wow fadeInUp">
+        <a href="#nominees" class="btn btn-outline-ink">View All Nominees</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- THE RACE - Only show if rankings exist -->
+{% if rankings %}
+<section class="bg-dark section-pad reveal reveal-left" id="the-race">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-4 mb-lg-0 wow fadeInUp">
+        <span class="eyebrow on-dark">Live Standings</span>
+        <h2 class="section-title mt-2">The Race</h2>
+        <p class="section-sub mb-3">Trending nominees this week. Rankings update automatically.</p>
+        <a href="#vote-section" class="btn btn-gold">Cast Your Vote</a>
+      </div>
+      <div class="col-lg-7 wow fadeInUp" data-wow-delay=".1s">
+        <div id="rankingList">
+          {% for nominee in rankings|slice:":10" %}
+            <div class="rank-row">
+              <div class="rank-num">{{ forloop.counter|stringformat:"02d" }}</div>
+              {% if nominee.photo %}
+                <img class="rank-photo" src="{{ nominee.photo.url }}" alt="{{ nominee.name }}">
+              {% else %}
+                <img class="rank-photo" src="{% static 'img/default-avatar.png' %}" alt="{{ nominee.name }}">
+              {% endif %}
+              <div>
+                <div class="rank-name">{{ nominee.name }}</div>
+                <div class="rank-cat">{{ nominee.category.name }}</div>
+              </div>
+              <span class="rank-move up"><i class="fas fa-arrow-up"></i></span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- CATEGORIES SECTION - Only show if categories exist -->
+{% if categories %}
+<section class="section-pad bg-soft reveal reveal-up" id="categories">
+  <div class="container">
+    <div class="text-center mb-4 wow fadeInUp">
+      <span class="eyebrow justify-content-center">Fields Of Recognition</span>
+      <h2 class="section-title mt-2">The Categories</h2>
+      <p class="section-sub mx-auto text-center">From culture and creativity to business, leadership and impact across Africa. Pick a category to see who's in the running.</p>
+    </div>
+    <div class="row g-4 wow fadeInUp" data-wow-delay=".1s">
+      <div class="col-lg-5">
+        <select class="category-select" id="categorySelect" aria-label="Select a category">
+          {% for category in categories %}
+            <option value="{{ category.slug }}">{{ category.name }} — {{ category.group }}</option>
+          {% endfor %}
+        </select>
+        <div class="category-scroll-outer">
+          <div class="category-scroll-track-v" id="categoryExplorerList">
+            {% for category in categories %}
+              <div class="category-pill-row" data-name="{{ category.slug }}">
+                <span class="grp">{{ category.group }}</span>
+                <span class="nm2">{{ category.name }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="category-detail-panel" id="categoryDetailPanel">
+          {% with first_category=categories|first %}
+            <span class="grp2">{{ first_category.group }}</span>
+            <h3 class="font-display">{{ first_category.name }}</h3>
+            <p class="muted mb-0">{{ first_category.description }}</p>
+            <div class="cd-nominee-scroll-outer">
+              <div class="cd-nominee-track">
+                {% for nominee in nominees %}
+                  {% if nominee.category.id == first_category.id %}
+                    <div class="cd-mini-card">
+                      <div class="img-wrap">
+                        {% if nominee.photo %}
+                          <img src="{{ nominee.photo.url }}" alt="{{ nominee.name }}">
+                        {% else %}
+                          <img src="{% static 'img/default-avatar.png' %}" alt="{{ nominee.name }}">
+                        {% endif %}
+                      </div>
+                      <div class="body">
+                        <div class="name">{{ nominee.name }}</div>
+                        <div class="cd-mini-progress"><div class="cd-mini-progress-fill" style="width:{% if nominees %}{% widthratio nominee.votes max_votes 100 %}{% else %}0{% endif %}%"></div></div>
+                        <div class="cd-mini-votes">{{ nominee.votes }} votes</div>
+                        <button class="cd-mini-vote-btn" data-nominee="{{ nominee.id }}" data-category="{{ nominee.category.id }}">Vote KSH 10</button>
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ACADEMY SECTION -->
+<section class="section-pad reveal reveal-up" id="academy">
+  <div class="container">
+    <div class="row g-4 mb-4 align-items-stretch wow fadeInUp">
+      <div class="col-lg-6">
+        <span class="eyebrow">The Academy</span>
+        <h2 class="section-title mt-2">Recognition Deserves Standards.</h2>
+      </div>
+      <div class="col-lg-6">
+        <div class="purpose-block">
+          <i class="fas fa-shield-alt"></i>
+          <div><div class="k">Independent judging</div><div class="v">Meet the people shaping the shortlist</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-3" id="judgeGrid">
+      <!-- Judges will be populated from admin -->
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="bg-dark section-pad reveal reveal-right" id="methodology">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-5 wow fadeInUp">
+        <span class="eyebrow on-dark">The Process</span>
+        <h2 class="section-title mt-2">How Pinnacle Excellence Decides</h2>
+        <p class="section-sub">Official judging and voting methodology will be published closer to the ceremony.</p>
+      </div>
+      <div class="col-lg-7 wow fadeInUp" data-wow-delay=".1s">
+        <div id="methodList">
+          <div class="method-step"><div class="method-num">01</div><div><h5>Nominate</h5><p>The public and the Academy submit nominations across all categories.</p></div></div>
+          <div class="method-step"><div class="method-num">02</div><div><h5>Screen</h5><p>Every nomination is reviewed for eligibility and completeness.</p></div></div>
+          <div class="method-step"><div class="method-num">03</div><div><h5>Shortlist</h5><p>The Academy narrows each category to a final shortlist.</p></div></div>
+          <div class="method-step"><div class="method-num">04</div><div><h5>Judge</h5><p>Category judges evaluate shortlisted nominees against published criteria.</p></div></div>
+          <div class="method-step"><div class="method-num">05</div><div><h5>Public Vote</h5><p>The public casts votes for their favourite nominees.</p></div></div>
+          <div class="method-step"><div class="method-num">06</div><div><h5>Crown</h5><p>Winners are revealed live on the night.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS SECTION - Only show if news exists -->
+{% if news %}
+<section class="section-pad reveal reveal-up" id="moika-now">
+  <div class="container">
+    <div class="row align-items-end mb-4 wow fadeInUp">
+      <div class="col-lg-7">
+        <span class="eyebrow">The Newsroom</span>
+        <h2 class="section-title mt-2">Pinnacle Now</h2>
+        <p class="section-sub mb-0">The people, the culture, the journey — inside this year's race.</p>
+      </div>
+      <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
+        <a href="#" class="btn btn-outline-ink">All News</a>
+      </div>
+    </div>
+    <div class="row g-3" id="storyGrid">
+      {% for article in news %}
+        <div class="col-sm-6 col-lg-4">
+          <div class="news-card wow fadeInUp">
+            {% if article.image %}
+              <img src="{{ article.image.url }}" alt="{{ article.title }}">
+            {% else %}
+              <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80" alt="{{ article.title }}">
+            {% endif %}
+            <div class="news-body">
+              <div class="tag">{{ article.tag }}</div>
+              <h5>{{ article.title }}</h5>
+              <p>{{ article.excerpt|truncatechars:100 }}</p>
+              <a href="#" class="btn-read">Read more</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- THE NIGHT -->
+<section class="bg-dark section-pad reveal reveal-left" id="the-night">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-lg-6 wow fadeInUp">
+        <span class="eyebrow on-dark">Pinnacle Excellence Awards Africa 2026</span>
+        <h2 class="section-title mt-2">The Night Of Recognition</h2>
+        <p class="section-sub mb-3">One night. One stage. Every field of excellence, together in celebration.</p>
+        <div>
+          <div class="ceremony-detail"><i class="fas fa-calendar-alt"></i><div><div class="lbl">Date</div><div class="val">To Be Announced</div></div></div>
+          <div class="ceremony-detail"><i class="fas fa-map-marker-alt"></i><div><div class="lbl">Venue</div><div class="val">To Be Announced</div></div></div>
+          <div class="ceremony-detail"><i class="fas fa-microphone"></i><div><div class="lbl">Hosts</div><div class="val">To Be Announced</div></div></div>
+          <div class="ceremony-detail"><i class="fas fa-star"></i><div><div class="lbl">Dress Code</div><div class="val">To Be Announced</div></div></div>
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeIn" data-wow-delay=".1s">
+        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=900&q=80" class="img-fluid" alt="Empty stage set for an awards ceremony, lights on" style="height:280px;object-fit:cover;width:100%;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY - Only show if gallery exists -->
+{% if gallery %}
+<section style="padding:2.2rem 0;" class="reveal reveal-up" id="moments">
+  <div class="container mb-3">
+    <div class="text-center wow fadeInUp">
+      <span class="eyebrow justify-content-center">The Gallery</span>
+      <h2 class="section-title mt-2">Pinnacle Moments</h2>
+    </div>
+  </div>
+  <div class="infinity-scroll wow fadeIn" style="background:#F5F8F6;">
+    <div class="container">
+      <div class="scroll-track" id="momentsTrackA">
+        {% for image in gallery %}
+          <div class="scroll-item"><img src="{{ image.image.url }}" alt="{{ image.title }}" loading="lazy"></div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- PARTNERS - Only show if partners exist -->
+{% if partners %}
+<section class="section-pad bg-soft reveal reveal-scale" id="partners">
+  <div class="container">
+    <div class="text-center mb-4 wow fadeInUp">
+      <span class="eyebrow justify-content-center">Powered By</span>
+      <h2 class="section-title mt-2">Our Partners</h2>
+    </div>
+    <div class="row g-3">
+      {% for partner in partners %}
+        <div class="col-6 col-md-4 col-lg-2 wow fadeInUp" data-wow-delay=".05s">
+          <div class="partner-tile">
+            {% if partner.logo %}
+              <img src="{{ partner.logo.url }}" alt="{{ partner.name }}" style="max-height:40px;max-width:100%;">
+            {% else %}
+              {{ partner.name }}
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- NOMINATE SECTION - UPDATED WITH PROPER FORM -->
+<section class="bg-green section-pad reveal reveal-up" id="nominate">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-5 wow fadeInUp">
+        <span class="eyebrow on-dark">Recognition Starts With You</span>
+        <h2 class="section-title mt-2">See Someone Who Deserves It?</h2>
+        <p class="section-sub">Nominate them. Tell us who is shaping culture, business, leadership or impact across Africa this year. Your nomination will be reviewed by our team.</p>
+        <div class="mt-4 text-light opacity-75 small">
+          <i class="fas fa-check-circle text-gold me-2"></i> All nominations are reviewed by our academy<br>
+          <i class="fas fa-check-circle text-gold me-2"></i> You'll be notified when your nominee is shortlisted<br>
+          <i class="fas fa-check-circle text-gold me-2"></i> Multiple nominations for the same person are welcome
+        </div>
+      </div>
+      <div class="col-lg-7 wow fadeInUp" data-wow-delay=".1s">
+        <form id="nominateForm" novalidate>
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label-moika" for="nomName">Nominee Full Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control form-control-moika" id="nomName" placeholder="e.g. John Doe" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-moika" for="nomCategory">Category <span class="text-danger">*</span></label>
+              <select class="form-select form-control-moika" id="nomCategory" required>
+                <option value="" selected disabled>Select a category</option>
+                {% for category in categories %}
+                  <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label-moika" for="nomDesc">Why does this person deserve to be nominated? <span class="text-danger">*</span></label>
+              <textarea class="form-control form-control-moika" id="nomDesc" rows="3" placeholder="Tell us about their achievements, impact, and why they deserve recognition..." required></textarea>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-moika" for="subName">Your Full Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control form-control-moika" id="subName" placeholder="e.g. Jane Smith" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label-moika" for="subEmail">Your Email <span class="text-danger">*</span></label>
+              <input type="email" class="form-control form-control-moika" id="subEmail" placeholder="you@example.com" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label-moika" for="subPhone">Your Phone Number (optional)</label>
+              <input type="tel" class="form-control form-control-moika" id="subPhone" placeholder="e.g. 0712345678">
+            </div>
+            <div class="col-12 mt-3">
+              <div id="nominateStatus" class="mb-3" style="display:none;"></div>
+              <button type="submit" class="btn btn-gold" id="nominateBtn">
+                <i class="fas fa-pen-fancy me-2"></i> Submit Nomination
+              </button>
+              <span class="text-light opacity-75 ms-3 small">All fields marked with <span class="text-danger">*</span> are required</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HALL OF FAME - Only show if entries exist -->
+{% if hall_of_fame %}
+<section class="section-pad reveal reveal-up" id="hall-of-fame">
+  <div class="container">
+    <div class="text-center mb-4 wow fadeInUp">
+      <span class="eyebrow justify-content-center">The Institution</span>
+      <h2 class="section-title mt-2">Hall Of Fame</h2>
+      <p class="section-sub mx-auto text-center">Celebrating the legends who have shaped excellence.</p>
+    </div>
+    <div class="row g-3" id="hofGrid">
+      {% for entry in hall_of_fame %}
+        <div class="col-sm-6 col-lg-4">
+          <div class="hof-winner wow fadeInUp">
+            {% if entry.photo %}
+              <img src="{{ entry.photo.url }}" alt="{{ entry.name }}">
+            {% else %}
+              <div class="hof-avatar-placeholder" style="width:54px;height:54px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:var(--dark);">{{ entry.name|first|upper }}</div>
+            {% endif %}
+            <div>
+              <div class="cat">{{ entry.category }}</div>
+              <div class="nm">{{ entry.name }}</div>
+              <div style="font-size:0.65rem;color:var(--muted);">{{ entry.year }}</div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- FAQ -->
+<section class="section-pad bg-soft reveal reveal-up" id="faq">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-5 wow fadeInUp">
+        <div class="faq-badge mb-4"><i class="fas fa-question-circle"></i><span>Need Help?</span></div>
+        <span class="eyebrow">Questions</span>
+        <h2 class="section-title mt-2">FAQ</h2>
+        <p class="section-sub">Official details will be announced by Pinnacle Excellence Awards Africa where not yet confirmed.</p>
+      </div>
+      <div class="col-lg-7 wow fadeInUp" data-wow-delay=".1s">
+        <div id="faqList">
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>What are the Pinnacle Excellence Awards Africa?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Pinnacle Excellence Awards Africa is a digital awards platform celebrating excellence, talent and achievement across entertainment, creative, business, leadership, innovation and social impact across the African continent.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>Who can be nominated?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Anyone whose work or achievement fits one of this year's published categories can be nominated by the public or the Academy.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>How does voting work?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">Each vote costs KSH 10, paid via M-Pesa at the point of voting. Once payment is confirmed, your vote is added to the nominee's tally for that category.</div></div>
+          <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>When is the ceremony?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">The ceremony date will be announced by Pinnacle Excellence Awards Africa.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta section-pad reveal reveal-scale">
+  <div class="container">
+    <div class="wow fadeInUp">
+      <span class="eyebrow on-dark justify-content-center">Pinnacle Excellence Awards Africa 2026</span>
+      <h2 class="section-title mt-2">Your Voice Matters.</h2>
+      <p class="section-sub mx-auto text-center">Celebrate excellence. Discover the nominees. Cast your vote.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center mt-3">
+        <a href="#vote-section" class="btn btn-gold">Vote Now</a>
+        <a href="#nominees" class="btn btn-outline-ivory">Explore Nominees</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="vote-section"></div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer-moika">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <div class="footer-brand mb-3">PINNACLE <span>EXCELLENCE</span><span class="sub">AWARDS AFRICA</span></div>
+        <p class="small">{{ site_settings.tagline|default:"Celebrating Excellence. Inspiring Impact. Honouring Greatness." }}</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" aria-label="X"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Explore</h6>
+        <a href="#nominees" class="flink">Nominees</a>
+        <a href="#categories" class="flink">Categories</a>
+        <a href="#hall-of-fame" class="flink">Winners</a>
+        <a href="#moika-now" class="flink">Pinnacle Now</a>
+        <a href="#hall-of-fame" class="flink">Hall of Fame</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Participate</h6>
+        <a href="#vote-section" class="flink">Vote</a>
+        <a href="#nominate" class="flink">Nominate</a>
+        <a href="#partners" class="flink">Become a Partner</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Pinnacle</h6>
+        <a href="#academy" class="flink">The Academy</a>
+        <a href="#methodology" class="flink">Methodology</a>
+        <a href="#the-night" class="flink">The Night</a>
+        <a href="#faq" class="flink">Contact</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Newsletter</h6>
+        <p class="small">Stay updated on nominees and results.</p>
+        <div class="newsletter-box">
+          <input type="text" placeholder="Your email">
+          <button type="button" class="btn btn-gold btn-sm2">Join</button>
+        </div>
+      </div>
+    </div>
+    <div class="rule my-4" style="background:var(--line-light);"></div>
+    <div class="d-flex flex-column flex-md-row justify-content-between small text-center text-md-start gap-2">
+      <span>&copy; <span id="yearNow"></span> Pinnacle Excellence Awards Africa. All rights reserved.</span>
+      <span>A digital awards platform. Demo content shown for interface preview.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- VOTE FLOAT -->
+<button class="vote-float" id="voteFloat">
+  <i class="fas fa-ticket-alt"></i>
+  <span class="badge-vote" id="voteCount">0</span>
+  <span id="voteBubble">Votes Cast</span>
+</button>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<!-- MODALS -->
+<div class="modal fade modal-moika" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title font-display" id="searchModalLabel">Search</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><input type="text" class="form-control search-input" id="searchInput" placeholder="Find a nominee, category or winner..." autocomplete="off"><div id="searchResults" class="mt-3"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-moika" id="allNomineesModal" tabindex="-1" aria-labelledby="allNomineesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title font-display" id="allNomineesModalLabel">All Nominees</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><div class="row g-3" id="allNomineesGrid"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAY MODAL - FIXED POSITIONING -->
+<div class="modal fade modal-moika" id="payModal" tabindex="-1" aria-labelledby="payModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-display" id="payModalLabel">Cast Your Vote</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-1 fw-bold" id="payNomineeName"></p>
+        <p class="muted small mb-3" id="payCategoryName"></p>
+        
+        <!-- Vote Quantity Input -->
+        <div class="form-group" style="margin-bottom:12px;">
+          <label class="vote-quantity-label">Number of Votes</label>
+          <input type="number" class="vote-quantity-input" id="voteQuantity" value="1" min="1" max="50" onchange="updateVoteTotal()" oninput="updateVoteTotal()">
+          <div style="font-size:0.65rem;color:var(--muted);margin-top:4px;">You can vote up to 50 times per transaction</div>
+        </div>
+        
+        <div class="vote-total-amount">
+          Total: <span id="voteTotalAmount">KSH 10</span>
+        </div>
+        
+        <hr style="margin:12px 0;">
+        
+        <p class="mb-2 small">Enter your phone number to pay via M-Pesa and cast your vote(s).</p>
+        <label class="form-label-moika" style="color:var(--green)" for="payPhone">Phone Number</label>
+        <input type="tel" class="form-control mb-2" id="payPhone" placeholder="e.g. 0712345678" style="border-radius:4px;border:1px solid rgba(0,0,0,.15);">
+        <div id="payStatus" class="small mt-2"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-ink" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-gold" id="payConfirmBtn">Pay &amp; Vote</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-moika" id="voteModal" tabindex="-1" aria-labelledby="voteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-3">
+      <div class="modal-body">
+        <i class="fas fa-check-circle" style="font-size:2.4rem;color:var(--green-bright);"></i>
+        <h5 class="font-display mt-3" id="voteModalTitle">Vote Submitted</h5>
+        <p class="muted" id="voteModalText">Thank you for voting. Your voice has been counted for this category.</p>
+        <button type="button" class="btn btn-gold mt-2" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-moika" id="toastMoika"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+<script>
+// ============================================================
+// COUNTDOWN - WITH DAYS
+// ============================================================
+const countdownTarget = new Date('{{ site_settings.countdown_date|date:"Y-m-d H:i:s" }}').getTime();
+
+function updateCountdown() {
+    const now = Date.now();
+    const diff = countdownTarget - now;
+    if (diff <= 0) {
+        document.getElementById('hero-cd-days').textContent = '00';
+        document.getElementById('hero-cd-hrs').textContent = '00';
+        document.getElementById('hero-cd-min').textContent = '00';
+        document.getElementById('hero-cd-sec').textContent = '00';
+        return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('hero-cd-days').textContent = String(d).padStart(2, '0');
+    document.getElementById('hero-cd-hrs').textContent = String(h).padStart(2, '0');
+    document.getElementById('hero-cd-min').textContent = String(m).padStart(2, '0');
+    document.getElementById('hero-cd-sec').textContent = String(s).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ============================================================
+// NOMINEE SCROLL - NO EMPTY SPACE
+// ============================================================
+function setupNomineeScroll() {
+    const outer = document.getElementById('nomineeScrollOuter');
+    const track = document.getElementById('nomineeScrollTrack');
+    const cards = track.querySelectorAll('.nominee-card');
+    const count = cards.length;
+    
+    outer.classList.remove('single', 'few', 'loop-end');
+    
+    if (count <= 1) {
+        outer.classList.add('single');
+    } else if (count <= 3) {
+        outer.classList.add('few');
+        const clones = cards.length;
+        for (let i = 0; i < clones; i++) {
+            const clone = cards[i].cloneNode(true);
+            track.appendChild(clone);
+        }
+    } else {
+        outer.classList.add('loop-end');
+        const clones = cards.length;
+        for (let i = 0; i < clones; i++) {
+            const clone = cards[i].cloneNode(true);
+            track.appendChild(clone);
+        }
+    }
+}
+
+// ============================================================
+// HERO BACKGROUND SLIDER
+// ============================================================
+const heroSlides = document.querySelectorAll('.hero-slide');
+let currentSlide = 0;
+let slideInterval = null;
+
+function goToSlide(index) {
+  heroSlides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % heroSlides.length;
+  goToSlide(currentSlide);
+}
+
+function startSlider() {
+  if (slideInterval) clearInterval(slideInterval);
+  slideInterval = setInterval(nextSlide, 5000);
+}
+
+function stopSlider() {
+  if (slideInterval) {
+    clearInterval(slideInterval);
+    slideInterval = null;
+  }
+}
+
+startSlider();
+
+const hero = document.querySelector('.hero-moika');
+hero.addEventListener('mouseenter', stopSlider);
+hero.addEventListener('mouseleave', startSlider);
+
+let touchStartX = 0;
+let touchEndX = 0;
+hero.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
+hero.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+    } else {
+      currentSlide = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+    }
+    goToSlide(currentSlide);
+    stopSlider();
+    startSlider();
+  }
+});
+
+// ============================================================
+// VOTE QUANTITY & TOTAL CALCULATION
+// ============================================================
+const VOTE_PRICE = 10;
+
+function updateVoteTotal() {
+    const quantity = parseInt(document.getElementById('voteQuantity').value) || 1;
+    const total = quantity * VOTE_PRICE;
+    document.getElementById('voteTotalAmount').textContent = 'KSH ' + total;
+}
+
+// ============================================================
+// PAYSTACK INLINE PAYMENT - NO REDIRECTION
+// ============================================================
+let votedCategories = {};
+let voteTotal = 0;
+let pendingVote = null;
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function showToast(msg) {
+    const t = document.getElementById('toastMoika');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+document.querySelectorAll('.vote-btn, .cd-mini-vote-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const cat = this.dataset.category;
+        const name = this.closest('.nominee-card')?.querySelector('.name')?.textContent ||
+            this.closest('.cd-mini-card')?.querySelector('.name')?.textContent || 'Nominee';
+
+        pendingVote = {
+            cat: cat,
+            name: name,
+            nomineeId: this.dataset.nominee
+        };
+
+        document.getElementById('payNomineeName').textContent = name;
+        document.getElementById('payCategoryName').textContent = cat;
+        document.getElementById('payPhone').value = '';
+        document.getElementById('payStatus').textContent = '';
+        
+        document.getElementById('voteQuantity').value = 1;
+        updateVoteTotal();
+
+        const confirmBtn = document.getElementById('payConfirmBtn');
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = 'Pay & Vote';
+
+        new bootstrap.Modal(document.getElementById('payModal')).show();
+    });
+});
+
+document.getElementById('payConfirmBtn').addEventListener('click', function() {
+    if (!pendingVote) return;
+
+    const phone = document.getElementById('payPhone').value.trim();
+    const quantity = parseInt(document.getElementById('voteQuantity').value) || 1;
+    const totalAmount = quantity * VOTE_PRICE;
+    const statusEl = document.getElementById('payStatus');
+
+    if (!/^0[17]\d{8}$/.test(phone)) {
+        statusEl.style.color = '#B23A3A';
+        statusEl.textContent = 'Enter a valid phone number, e.g. 0712345678.';
+        return;
+    }
+
+    if (quantity < 1 || quantity > 50) {
+        statusEl.style.color = '#B23A3A';
+        statusEl.textContent = 'Please enter between 1 and 50 votes.';
+        return;
+    }
+
+    const confirmBtn = this;
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = 'Processing...';
+    statusEl.style.color = 'var(--muted)';
+    statusEl.textContent = `Initializing payment for ${quantity} vote(s)...`;
+
+    fetch('/paystack/initialize/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({
+            nominee_id: pendingVote.nomineeId,
+            phone: phone,
+            amount: totalAmount,
+            quantity: quantity,
+            email: ''
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.authorization_url) {
+            var handler = PaystackPop.setup({
+                key: '{{ paystack_public_key|default:"" }}',
+                email: data.email || 'voter@example.com',
+                amount: totalAmount * 100,
+                currency: 'KES',
+                ref: data.reference,
+                callback: function(response) {
+                    verifyPayment(response.reference, pendingVote.nomineeId, quantity);
+                },
+                onClose: function() {
+                    statusEl.style.color = '#B23A3A';
+                    statusEl.textContent = 'Payment was cancelled.';
+                    confirmBtn.disabled = false;
+                    confirmBtn.textContent = 'Pay & Vote';
+                }
+            });
+            handler.openIframe();
+        } else {
+            statusEl.style.color = '#B23A3A';
+            statusEl.textContent = data.message || 'Payment initialization failed';
+            confirmBtn.disabled = false;
+            confirmBtn.textContent = 'Pay & Vote';
+        }
+    })
+    .catch(error => {
+        statusEl.style.color = '#B23A3A';
+        statusEl.textContent = 'An error occurred. Please try again.';
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = 'Pay & Vote';
+        console.error('Paystack error:', error);
+    });
+});
+
+function verifyPayment(reference, nomineeId, quantity) {
+    fetch('/paystack/verify/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({
+            reference: reference,
+            nominee_id: nomineeId,
+            quantity: quantity
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            bootstrap.Modal.getInstance(document.getElementById('payModal')).hide();
+            
+            document.getElementById('voteModalTitle').textContent = 'Vote Submitted!';
+            document.getElementById('voteModalText').textContent = `Thank you for voting! ${quantity} vote(s) recorded for ${data.nominee_name || 'the nominee'}.`;
+            new bootstrap.Modal(document.getElementById('voteModal')).show();
+            
+            showToast(`✅ ${quantity} vote(s) recorded! Thank you.`);
+            
+            location.reload();
+        } else {
+            showToast('❌ ' + (data.message || 'Payment verification failed.'));
+        }
+    })
+    .catch(error => {
+        showToast('❌ An error occurred during verification.');
+        console.error('Verification error:', error);
+    });
+}
+
+document.getElementById('voteQuantity').addEventListener('change', updateVoteTotal);
+document.getElementById('voteQuantity').addEventListener('input', updateVoteTotal);
+
+// ============================================================
+// USER NOMINATION FORM - SUBMIT
+// ============================================================
+
+document.getElementById('nominateForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('nomName').value.trim();
+    const category = document.getElementById('nomCategory').value;
+    const description = document.getElementById('nomDesc').value.trim();
+    const nominator = document.getElementById('subName').value.trim();
+    const email = document.getElementById('subEmail').value.trim();
+    const phone = document.getElementById('subPhone').value.trim();
+    const statusEl = document.getElementById('nominateStatus');
+    const btn = document.getElementById('nominateBtn');
+    
+    if (!name || !category || !description || !nominator || !email) {
+        statusEl.style.display = 'block';
+        statusEl.style.color = '#f5a0a0';
+        statusEl.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i> Please fill in all required fields.';
+        return;
+    }
+    
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        statusEl.style.display = 'block';
+        statusEl.style.color = '#f5a0a0';
+        statusEl.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i> Please enter a valid email address.';
+        return;
+    }
+    
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Submitting...';
+    statusEl.style.display = 'block';
+    statusEl.style.color = '#B7C6BE';
+    statusEl.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Submitting your nomination...';
+    
+    fetch('/api/nominate/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({
+            nominee_name: name,
+            category_id: parseInt(category),
+            description: description,
+            nominator_name: nominator,
+            nominator_email: email,
+            nominator_phone: phone
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            statusEl.style.color = '#2EB872';
+            statusEl.innerHTML = '<i class="fas fa-check-circle me-2"></i> ' + data.message;
+            this.reset();
+            btn.innerHTML = '<i class="fas fa-check me-2"></i> Submitted!';
+            
+            showToast('✅ ' + data.message);
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-pen-fancy me-2"></i> Submit Nomination';
+                btn.disabled = false;
+            }, 3000);
+        } else {
+            statusEl.style.color = '#f5a0a0';
+            statusEl.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i> ' + (data.message || 'Something went wrong. Please try again.');
+            btn.innerHTML = '<i class="fas fa-pen-fancy me-2"></i> Submit Nomination';
+            btn.disabled = false;
+        }
+    })
+    .catch(error => {
+        statusEl.style.color = '#f5a0a0';
+        statusEl.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i> An error occurred. Please try again.';
+        btn.innerHTML = '<i class="fas fa-pen-fancy me-2"></i> Submit Nomination';
+        btn.disabled = false;
+        console.error('Nomination error:', error);
+    });
+});
+
+// ============================================================
+// NAVBAR SCROLL
+// ============================================================
+window.addEventListener('scroll', function() {
+  const nav = document.getElementById('mainNav');
+  if (window.scrollY > 40) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  if (window.scrollY > window.innerHeight * 0.9) {
+    scrollBtn.classList.add('visible');
+  } else {
+    scrollBtn.classList.remove('visible');
+  }
+});
+
+document.getElementById('scrollTopBtn').addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ============================================================
+// FLOAT VOTE BUTTON
+// ============================================================
+document.getElementById('voteFloat')?.addEventListener('click', function() {
+  const cats = Object.keys(votedCategories);
+  showToast(cats.length ? 'You have voted in ' + cats.length + ' categor' + (cats.length === 1 ? 'y' : 'ies') + ' this session.' : 'No votes cast yet.');
+});
+
+// ============================================================
+// FAQ TOGGLE
+// ============================================================
+function toggleFaq(elm) {
+  const answer = elm.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('open'));
+  if (!isOpen) { answer.classList.add('open'); elm.classList.add('open'); }
+}
+
+// ============================================================
+// WOW INIT
+// ============================================================
+new WOW({ live: false }).init();
+
+// ============================================================
+// YEAR
+// ============================================================
+document.getElementById('yearNow').textContent = new Date().getFullYear();
+
+// ============================================================
+// SETUP NOMINEE SCROLL
+// ============================================================
+setupNomineeScroll();
+
+// ============================================================
+// SEARCH
+// ============================================================
+document.getElementById('searchInput').addEventListener('input', function() {
+  const q = this.value.trim().toLowerCase();
+  const results = document.getElementById('searchResults');
+  if (q.length < 2) { results.innerHTML = ''; return; }
+  
+  const nominees = [{% for n in nominees %}'{{ n.name }}',{% endfor %}];
+  const matches = nominees.filter(n => n.toLowerCase().includes(q)).slice(0, 8);
+  results.innerHTML = matches.length ? matches.map(m => 
+    '<div class="search-result-item"><div class="k">Nominee</div><div>' + m + ' <span class="muted small">— Candidate</span></div></div>'
+  ).join('') : '<p class="muted small">No results found.</p>';
+});
+
+// ============================================================
+// CATEGORY EXPLORER
+// ============================================================
+const categorySelect = document.getElementById('categorySelect');
+const categoryPills = document.querySelectorAll('.category-pill-row');
+const categoryPanel = document.getElementById('categoryDetailPanel');
+
+const categoryData = {
+  {% for cat in categories %}
+    '{{ cat.slug }}': {
+      name: '{{ cat.name }}',
+      group: '{{ cat.group }}',
+      desc: '{{ cat.description|escapejs }}',
+      nominees: [
+        {% for nominee in nominees %}
+          {% if nominee.category.id == cat.id %}
+            { id: {{ nominee.id }}, name: '{{ nominee.name }}', votes: {{ nominee.votes }}, photo: '{% if nominee.photo %}{{ nominee.photo.url }}{% endif %}' },
+          {% endif %}
+        {% endfor %}
+      ]
+    },
+  {% endfor %}
+};
+
+function selectCategory(slug) {
+  const cat = categoryData[slug];
+  if (!cat) return;
+  
+  categoryPills.forEach(p => p.classList.toggle('active', p.dataset.name === slug));
+  if (categorySelect) categorySelect.value = slug;
+  
+  let nomineesHtml = '';
+  if (cat.nominees.length) {
+    const doubled = [...cat.nominees, ...cat.nominees];
+    nomineesHtml = doubled.map(n => `
+      <div class="cd-mini-card">
+        <div class="img-wrap">
+          <img src="${n.photo || '{% static "img/default-avatar.png" %}'}" alt="${n.name}">
+        </div>
+        <div class="body">
+          <div class="name">${n.name}</div>
+          <div class="cd-mini-progress"><div class="cd-mini-progress-fill" style="width:${Math.round((n.votes / ({{ nominees|length }} || 1)) * 100)}%"></div></div>
+          <div class="cd-mini-votes">${n.votes} votes</div>
+          <button class="cd-mini-vote-btn" data-nominee="${n.id}" data-category="${slug}">Vote KSH 10</button>
+        </div>
+      </div>
+    `).join('');
+  } else {
+    nomineesHtml = '<p class="muted small text-center" style="padding:20px;">No nominees for this category yet.</p>';
+  }
+  
+  categoryPanel.innerHTML = `
+    <span class="grp2">${cat.group}</span>
+    <h3 class="font-display">${cat.name}</h3>
+    <p class="muted mb-0">${cat.desc}</p>
+    <div class="cd-nominee-scroll-outer">
+      <div class="cd-nominee-track">${nomineesHtml}</div>
+    </div>
+  `;
+  
+  document.querySelectorAll('.cd-nominee-scroll-outer .cd-mini-vote-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const cat = this.dataset.category;
+      const name = this.closest('.cd-mini-card').querySelector('.name').textContent;
+      
+      pendingVote = { 
+        cat: cat, 
+        name: name, 
+        nomineeId: this.dataset.nominee
+      };
+
+      document.getElementById('payNomineeName').textContent = name;
+      document.getElementById('payCategoryName').textContent = cat;
+      document.getElementById('payPhone').value = '';
+      document.getElementById('payStatus').textContent = '';
+      
+      document.getElementById('voteQuantity').value = 1;
+      updateVoteTotal();
+
+      const confirmBtn = document.getElementById('payConfirmBtn');
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = 'Pay & Vote';
+
+      new bootstrap.Modal(document.getElementById('payModal')).show();
+    });
+  });
+}
+
+categoryPills.forEach(pill => {
+  pill.addEventListener('click', function() {
+    selectCategory(this.dataset.name);
+  });
+});
+
+if (categorySelect) {
+  categorySelect.addEventListener('change', function() {
+    selectCategory(this.value);
+  });
+}
+
+if (categoryPills.length) {
+  selectCategory(categoryPills[0].dataset.name);
+}
+
+// ============================================================
+// NOMINEE FILTERS
+// ============================================================
+document.querySelectorAll('.filter-pill').forEach(pill => {
+  pill.addEventListener('click', function() {
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.dataset.filter;
+    
+    document.querySelectorAll('.nominee-card').forEach(card => {
+      if (filter === 'all' || card.dataset.category === filter) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    
+    setTimeout(setupNomineeScroll, 100);
+  });
+});
+
+// ============================================================
+// NOMINATE FORM
+// ============================================================
+document.getElementById('nominateForm')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+  showToast('Nomination submitted. Thank you for recognising excellence.');
+  this.reset();
+});
+
+// ============================================================
+// LIVE STANDINGS - Auto update every 30 seconds
+// ============================================================
+function fetchStandings() {
+  fetch('/api/standings/')
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        const rankingList = document.getElementById('rankingList');
+        if (rankingList) {
+          rankingList.innerHTML = data.standings.map((s, i) => `
+            <div class="rank-row">
+              <div class="rank-num">${String(i+1).padStart(2, '0')}</div>
+              <div class="rank-photo" style="background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--dark);font-weight:700;font-size:16px;">${s.leader ? s.leader.charAt(0) : '?'}</div>
+              <div>
+                <div class="rank-name">${s.leader || 'No leader'}</div>
+                <div class="rank-cat">${s.category}</div>
+              </div>
+              <span class="rank-move ${i < 3 ? 'up' : 'down'}"><i class="fas ${i < 3 ? 'fa-arrow-up' : 'fa-arrow-down'}"></i></span>
+            </div>
+          `).join('');
+        }
+      }
+    })
+    .catch(error => console.log('Standings update error:', error));
+}
+
+fetchStandings();
+setInterval(fetchStandings, 30000);
+
+// ============================================================
+// SCROLL REVEAL
+// ============================================================
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+    } else if (entry.boundingClientRect.top > 0) {
+      entry.target.classList.remove('revealed');
+    }
+  });
+}, { threshold: .14, rootMargin: '0px 0px -8% 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>

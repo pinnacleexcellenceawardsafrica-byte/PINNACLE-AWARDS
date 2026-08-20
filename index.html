@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinnacle Excellence Awards Africa — Celebrating Excellence. Inspiring Impact. Honouring Greatness.</title>
+  <meta name="description" content="Pinnacle Excellence Awards Africa — celebrating excellence, inspiring impact, and honouring greatness across the continent. Discover nominees, explore categories, and cast your vote.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <style>
+    :root{
+      --dark:#0F1A14;
+      --green-deep:#1A3327;
+      --green:#2B6E4B;
+      --green-bright:#2EB872;
+      --gold:#F5C842;
+      --gold-soft:#FFE57A;
+      --ivory:#FFFFFF;
+      --white:#FFFFFF;
+      --ink:#0F1A14;
+      --muted:#5C6A62;
+      --line:rgba(0,0,0,.09);
+      --line-light:rgba(255,255,255,.14);
+
+      --font-display:'Quicksand',sans-serif;
+      --font-body:'Quicksand',sans-serif;
+
+      --pad-lg:3.4rem;
+      --pad-md:2.4rem;
+      --ease:all .28s cubic-bezier(.4,0,.2,1);
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    h1,h2,h3,h4,h5,h6,.font-display{font-family:var(--font-display);font-weight:700;letter-spacing:-0.02em;}
+    a{text-decoration:none;color:inherit;}
+    img{max-width:100%;display:block;border-radius:0 !important;}
+    ::selection{background:var(--gold-soft);color:var(--dark);}
+
+    .eyebrow{
+      font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
+      color:var(--green);display:inline-flex;align-items:center;gap:.55rem;
+    }
+    .eyebrow::before{content:"";width:22px;height:2px;background:var(--gold);display:inline-block;}
+    .eyebrow.on-dark{color:var(--gold-soft);}
+    .eyebrow.on-dark::before{background:var(--gold-soft);}
+
+    .section-pad{padding:var(--pad-lg) 0;}
+    @media(max-width:767px){.section-pad{padding:var(--pad-md) 0;}}
+
+    .bg-dark{background:var(--dark);color:var(--ivory);}
+    .bg-dark .muted{color:#9FB1A8;}
+    .bg-green{background:var(--green-deep);color:var(--ivory);}
+    .bg-soft{background:var(--ivory);}
+    .text-gold{color:var(--gold)!important;}
+    .text-green{color:var(--green)!important;}
+    .muted{color:var(--muted);}
+    .section-title{font-size:clamp(1.7rem,3.1vw,2.5rem);line-height:1.08;margin-bottom:.6rem;font-family:var(--font-display);font-weight:700;letter-spacing:-0.02em;}
+    .section-sub{font-size:.98rem;color:var(--muted);max-width:560px;}
+    .bg-dark .section-sub,.bg-green .section-sub{color:#B7C6BE;}
+    .rule{height:1px;background:var(--line);width:100%;}
+    .bg-dark .rule,.bg-green .rule{background:var(--line-light);}
+
+    .skip-link{position:absolute;left:-999px;top:0;background:var(--gold);color:var(--dark);padding:.6rem 1rem;z-index:2000;font-weight:700;}
+    .skip-link:focus{left:0;}
+    a:focus-visible,button:focus-visible,.form-control:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}}
+
+    .btn{font-weight:700;font-size:.75rem;letter-spacing:.09em;text-transform:uppercase;padding:.72rem 1.5rem;border-radius:50px;border:1px solid transparent;transition:var(--ease);font-family:var(--font-body);}
+    .btn-gold{background:var(--gold);color:var(--dark);}
+    .btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px);box-shadow:0 8px 18px rgba(245,200,66,.45);}
+    .btn-outline-ivory{background:transparent;color:var(--ivory);border-color:rgba(255,255,255,.35);}
+    .btn-outline-ivory:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+    .btn-outline-ink{background:transparent;color:var(--ink);border-color:rgba(0,0,0,.2);}
+    .btn-outline-ink:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px);}
+    .btn-green{background:var(--green-deep);color:var(--ivory);}
+    .btn-green:hover{background:var(--green-bright);color:var(--dark);transform:translateY(-2px);}
+    .btn-sm2{padding:.5rem 1.1rem;font-size:.68rem;}
+    .btn:disabled,.btn.disabled{opacity:.55;cursor:not-allowed;transform:none!important;}
+    .btn-link-underline{font-weight:700;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green);border-bottom:1px solid var(--green);padding-bottom:2px;transition:var(--ease);}
+    .btn-link-underline:hover{color:var(--gold);border-color:var(--gold);}
+
+    .topbar{background:rgba(15,26,20,0.85);backdrop-filter:blur(12px);color:#B7C6BE;font-size:.78rem;padding:.5rem 0;position:relative;z-index:10;}
+    .topbar i{color:var(--gold-soft);margin-right:.4rem;}
+    .topbar .social a{color:#B7C6BE;margin-left:.9rem;transition:var(--ease);}
+    .topbar .social a:hover{color:var(--gold);}
+
+    .navbar-moika{padding:.85rem 0;transition:var(--ease);position:fixed;top:26px;left:0;right:0;z-index:1200;background:transparent;}
+    .navbar-moika.scrolled{top:0;background:rgba(15,26,20,0.92);backdrop-filter:blur(16px);padding:.6rem 0;box-shadow:0 4px 18px rgba(0,0,0,.25);}
+    .navbar-brand-moika{font-weight:700;font-size:1.2rem;letter-spacing:-0.02em;color:var(--ivory);font-family:var(--font-display);}
+    .navbar-brand-moika span{color:var(--gold);}
+    .navbar-brand-moika .sub{display:block;font-size:.45rem;letter-spacing:.2em;font-weight:600;color:#9FB1A8;margin-top:-2px;font-family:var(--font-body);}
+    .nav-link-moika{color:var(--ivory);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 .8rem;position:relative;padding:.4rem 0!important;font-family:var(--font-body);}
+    .nav-link-moika::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:var(--ease);}
+    .nav-link-moika:hover::after,.nav-link-moika.active::after{width:100%;}
+    .nav-link-moika:hover{color:var(--gold);}
+    .navbar-toggler-moika{border:0;color:var(--ivory);font-size:1.35rem;background:transparent;}
+    .offcanvas-moika{background:var(--dark);color:var(--ivory);width:270px;}
+    .offcanvas-moika .nav-link-moika{display:block;margin:0;padding:.85rem 0!important;border-bottom:1px solid var(--line-light);}
+
+    .hero-moika{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--ivory);
+      overflow:hidden;
+      padding-top:80px;
+      padding-bottom:40px;
+    }
+
+    .hero-slider{
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+
+    .hero-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transition:opacity 1.2s ease-in-out;
+      transform:scale(1.05);
+    }
+
+    .hero-slide.active{
+      opacity:1;
+      transform:scale(1);
+    }
+
+    .hero-slide::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(15,26,20,0.80) 0%, rgba(15,26,20,0.50) 50%, rgba(15,26,20,0.30) 100%);
+      z-index:1;
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:radial-gradient(ellipse at center, rgba(15,26,20,0.2) 0%, rgba(15,26,20,0.6) 100%);
+      z-index:1;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      text-align:center;
+      max-width:820px;
+      padding:0 20px;
+    }
+
+    .hero-edition{
+      font-size:.7rem;
+      letter-spacing:.25em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.5);
+      font-weight:600;
+      font-family:var(--font-body);
+      margin-bottom:1rem;
+    }
+
+    .hero-title{
+      font-size:clamp(2.6rem,6vw,4.8rem);
+      line-height:1.04;
+      font-family:var(--font-display);
+      font-weight:700;
+      letter-spacing:-0.02em;
+      margin-bottom:.4rem;
+    }
+
+    .hero-title .line2{
+      color:var(--gold);
+      display:block;
+    }
+
+    .hero-tagline{
+      font-size:clamp(1rem,1.4vw,1.3rem);
+      color:rgba(255,255,255,0.7);
+      font-weight:400;
+      letter-spacing:0.04em;
+      margin-bottom:2rem;
+      font-family:var(--font-body);
+      line-height:1.6;
+    }
+
+    .hero-tagline .gold{
+      color:var(--gold);
+      font-weight:600;
+    }
+
+    .hero-tagline .dot{
+      color:rgba(255,255,255,0.25);
+      margin:0 8px;
+      font-weight:300;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      justify-content:center;
+      margin-bottom:0;
+    }
+
+    .hero-buttons .btn{
+      padding:.9rem 2.6rem;
+      font-size:.78rem;
+      letter-spacing:.1em;
+      border-radius:50px;
+      min-width:140px;
+    }
+
+    .hero-buttons .btn-gold{
+      background:var(--gold);
+      color:var(--dark);
+      box-shadow:0 6px 28px rgba(245,200,66,0.3);
+    }
+
+    .hero-buttons .btn-gold:hover{
+      background:var(--gold-soft);
+      box-shadow:0 10px 40px rgba(245,200,66,0.45);
+      transform:translateY(-3px);
+    }
+
+    .hero-buttons .btn-outline-ivory{
+      border-color:rgba(255,255,255,0.3);
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(4px);
+    }
+
+    .hero-buttons .btn-outline-ivory:hover{
+      background:rgba(255,255,255,0.12);
+      border-color:var(--gold);
+      color:var(--gold);
+    }
+
+    .hero-countdown{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:0.8rem;
+      margin-top:1.8rem;
+    }
+
+    .hero-countdown-label{
+      font-weight:500;
+      font-size:.65rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.4);
+      margin-right:.2rem;
+    }
+
+    .hcd-unit{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:6px;
+      padding:.25rem .65rem;
+      min-width:48px;
+    }
+
+    .hcd-unit .num{
+      color:#FFFFFF;
+      font-weight:600;
+      font-size:1.3rem;
+      font-family:var(--font-display);
+      line-height:1;
+    }
+
+    .hcd-unit .lbl2{
+      color:rgba(255,255,255,0.35);
+      font-size:.45rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      margin-top:.05rem;
+      font-weight:500;
+    }
+
+    .hcd-colon{
+      color:rgba(255,255,255,0.25);
+      font-weight:300;
+      font-size:1rem;
+    }
+
+    .hero-scroll-indicator{
+      position:absolute;
+      bottom:28px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:2;
+      color:rgba(255,255,255,0.25);
+      animation:bounceDown 2s infinite;
+      font-size:1rem;
+    }
+
+    @keyframes bounceDown{
+      0%,100%{transform:translateX(-50%) translateY(0);}
+      50%{transform:translateX(-50%) translateY(8px);}
+    }
+
+    @media(max-width:992px){
+      .hero-buttons .btn{
+        padding:.8rem 2rem;
+        font-size:.72rem;
+        min-width:120px;
+      }
+    }
+
+    @media(max-width:768px){
+      .hero-title{font-size:clamp(2.2rem,7vw,3.2rem);}
+      .hero-tagline{font-size:.95rem;}
+      .hero-buttons{gap:10px;}
+      .hero-buttons .btn{
+        padding:.7rem 1.6rem;
+        font-size:.7rem;
+        min-width:100px;
+        flex:1 1 auto;
+      }
+      .hero-countdown{gap:.5rem;}
+      .hcd-unit{min-width:40px;padding:.2rem .45rem;}
+      .hcd-unit .num{font-size:1rem;}
+      .hero-edition{font-size:.6rem;}
+    }
+
+    @media(max-width:480px){
+      .hero-title{font-size:clamp(1.8rem,8vw,2.6rem);}
+      .hero-tagline{font-size:.85rem;line-height:1.5;}
+      .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+        width:100%;
+      }
+      .hero-buttons .btn{
+        padding:.65rem 1.2rem;
+        font-size:.68rem;
+        min-width:0;
+        width:100%;
+        max-width:280px;
+        justify-content:center;
+      }
+      .hcd-unit{min-width:34px;padding:.15rem .35rem;}
+      .hcd-unit .num{font-size:.85rem;}
+      .hero-countdown-label{font-size:.5rem;}
+      .hero-edition{font-size:.55rem;letter-spacing:.15em;}
+    }
+
+    @media(max-width:360px){
+      .hero-title{font-size:clamp(1.5rem,10vw,2rem);}
+      .hero-tagline{font-size:.75rem;}
+      .hero-buttons .btn{
+        font-size:.6rem;
+        padding:.55rem 1rem;
+      }
+      .hcd-unit{min-width:28px;padding:.1rem .25rem;}
+      .hcd-unit .num{font-size:.7rem;}
+      .hcd-unit .lbl2{font-size:.35rem;}
+    }
+
+    .ticker{background:var(--gold);color:var(--dark);overflow:hidden;white-space:nowrap;border-top:1px solid var(--dark);border-bottom:1px solid var(--dark);}
+    .ticker-track{display:inline-flex;gap:2.5rem;padding:.55rem 0;animation:tickerMove 26s linear infinite;width:max-content;}
+    .ticker:hover .ticker-track{animation-play-state:paused;}
+    .ticker-item{font-size:.78rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.5rem;}
+    .ticker-item i{font-size:.7rem;}
+    @keyframes tickerMove{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+    .stats-block{background:var(--green-deep);color:var(--ivory);padding:2.4rem 0;}
+    .stat-cell{text-align:center;padding:.6rem;position:relative;}
+    .stat-cell i{font-size:1.5rem;color:var(--gold-soft);margin-bottom:.5rem;display:block;}
+    .stat-num{font-weight:700;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1;font-family:var(--font-display);}
+    .stat-label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#BFD3C7;margin-top:.4rem;font-weight:600;}
+    .stat-cell:not(:last-child)::after{content:"";position:absolute;right:0;top:18%;bottom:18%;width:1px;background:var(--line-light);}
+    @media(max-width:767px){.stat-cell:not(:last-child)::after{display:none;}}
+
+    .featured-wrap{border:1px solid var(--line);padding:2.1rem 1.4rem 1.8rem;background:var(--white);}
+    .filter-pills{display:flex;flex-wrap:wrap;gap:.55rem;}
+    .filter-pill{border:1px solid rgba(0,0,0,.15);background:transparent;color:var(--ink);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;padding:.45rem 1rem;border-radius:30px;cursor:pointer;transition:var(--ease);}
+    .filter-pill.active,.filter-pill:hover{background:var(--green-deep);color:var(--ivory);border-color:var(--green-deep);}
+
+    .nominee-scroll-outer{overflow:hidden;padding:10px 2px;position:relative;}
+    .nominee-scroll-outer::before,.nominee-scroll-outer::after{content:"";position:absolute;top:0;bottom:0;width:48px;z-index:2;pointer-events:none;}
+    .nominee-scroll-outer::before{left:0;background:linear-gradient(90deg,var(--white),transparent);}
+    .nominee-scroll-outer::after{right:0;background:linear-gradient(270deg,var(--white),transparent);}
+    .nominee-scroll-track{display:flex;gap:16px;width:max-content;animation:nomineeScrollLeft 55s linear infinite;}
+    .nominee-scroll-outer:hover .nominee-scroll-track{animation-play-state:paused;}
+    @keyframes nomineeScrollLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    .nominee-scroll-track .nominee-card{width:240px;flex:0 0 auto;}
+
+    .nominee-card{background:#FAFCFA;border:1px solid #EDF3EF;height:100%;transition:var(--ease);display:flex;flex-direction:column;}
+    .nominee-card:hover{box-shadow:0 14px 30px rgba(16,26,22,.12);transform:translateY(-4px);border-color:var(--green-bright);}
+    .nominee-card .img-wrap{position:relative;overflow:hidden;aspect-ratio:4/5;}
+    .nominee-card .img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+    .nominee-card:hover .img-wrap img{transform:scale(1.07);}
+    .nominee-badge{position:absolute;top:.65rem;left:.65rem;background:var(--dark);color:var(--gold-soft);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.28rem .6rem;}
+    .nominee-card .body{padding:1rem 1.1rem 1.15rem;text-align:center;}
+    .nominee-card .cat{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;}
+    .nominee-card .name{font-weight:700;font-size:1.02rem;margin:.3rem 0 .4rem;font-family:var(--font-display);}
+    .nominee-card .desc{font-size:.82rem;color:var(--muted);margin-bottom:.75rem;min-height:2.4em;}
+    .vote-progress-wrap{margin-bottom:.55rem;}
+    .vote-progress-bar{height:6px;background:#E8EDE9;border-radius:10px;overflow:hidden;}
+    .vote-progress-fill{height:100%;background:var(--green-bright);border-radius:10px;transition:width .5s ease;}
+    .vote-progress-label{font-size:.64rem;color:var(--muted);margin-top:.28rem;text-align:right;}
+    .vote-btn{width:100%;background:var(--dark);color:var(--ivory);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.62rem;border:1px solid var(--dark);border-radius:4px;transition:var(--ease);cursor:pointer;}
+    .vote-btn:hover:not(:disabled){background:var(--green-bright);border-color:var(--green-bright);color:var(--dark);}
+    .vote-btn.voted{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+    .vote-btn:disabled{cursor:not-allowed;opacity:.65;}
+
+    .rank-row{display:flex;align-items:center;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line-light);transition:var(--ease);}
+    .rank-row:hover{padding-left:.4rem;background:rgba(255,255,255,.03);}
+    .rank-num{font-weight:700;font-size:1.2rem;color:var(--gold-soft);width:2.1rem;font-family:var(--font-display);}
+    .rank-photo{width:44px;height:44px;object-fit:cover;flex-shrink:0;border-radius:50%!important;}
+    .rank-name{font-weight:700;font-size:.92rem;color:var(--ivory);font-family:var(--font-display);}
+    .rank-cat{font-size:.72rem;color:#9FB1A8;}
+    .rank-move{margin-left:auto;font-size:.74rem;font-weight:700;display:flex;align-items:center;gap:.25rem;}
+    .rank-move.up{color:var(--green-bright);}
+    .rank-move.down{color:#E08585;}
+    .rank-move.new{color:var(--gold);}
+
+    .category-select{width:100%;background:var(--white);border:1px solid var(--line);padding:.68rem .9rem;font-weight:700;font-size:.85rem;border-radius:4px;color:var(--ink);margin-bottom:1rem;font-family:var(--font-body);}
+    .category-scroll-outer{height:380px;overflow:hidden;position:relative;border:1px solid var(--line);background:var(--white);}
+    .category-scroll-outer::before,.category-scroll-outer::after{content:"";position:absolute;left:0;right:0;height:34px;z-index:2;pointer-events:none;}
+    .category-scroll-outer::before{top:0;background:linear-gradient(var(--white),transparent);}
+    .category-scroll-outer::after{bottom:0;background:linear-gradient(transparent,var(--white));}
+    .category-scroll-track-v{display:flex;flex-direction:column;width:100%;animation:catScrollUp 24s linear infinite;}
+    .category-scroll-outer:hover .category-scroll-track-v{animation-play-state:paused;}
+    @keyframes catScrollUp{0%{transform:translateY(0);}100%{transform:translateY(-50%);}}
+    .category-pill-row{padding:.9rem 1.1rem;border-bottom:1px solid var(--line);cursor:pointer;transition:var(--ease);}
+    .category-pill-row:hover{background:#F2F6F3;}
+    .category-pill-row.active{background:var(--green-deep);}
+    .category-pill-row.active .grp,.category-pill-row.active .nm2{color:var(--ivory);}
+    .category-pill-row .grp{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700;display:block;}
+    .category-pill-row .nm2{font-weight:700;font-size:.88rem;color:var(--ink);font-family:var(--font-display);}
+
+    .category-detail-panel{background:var(--white);border:1px solid var(--line);padding:1.7rem;min-height:380px;}
+    .category-detail-panel .grp2{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+    .category-detail-panel h3{margin:.45rem 0 .6rem;font-size:1.5rem;font-family:var(--font-display);}
+    
+    .cd-nominee-scroll-outer{
+      overflow:hidden;
+      padding:8px 2px;
+      position:relative;
+      margin-top:1.2rem;
+      min-height:200px;
+      display:flex;
+      align-items:center;
+      border:1px solid #EDF3EF;
+      border-radius:4px;
+      background:#FAFCFA;
+    }
+    .cd-nominee-scroll-outer::before,.cd-nominee-scroll-outer::after{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:32px;
+      z-index:2;
+      pointer-events:none;
+    }
+    .cd-nominee-scroll-outer::before{left:0;background:linear-gradient(90deg,var(--white),transparent);}
+    .cd-nominee-scroll-outer::after{right:0;background:linear-gradient(270deg,var(--white),transparent);}
+    .cd-nominee-track{
+      display:flex;
+      gap:12px;
+      width:max-content;
+      animation:cdNomineeScroll 34s linear infinite;
+      align-items:center;
+      padding:0 4px;
+    }
+    .cd-nominee-scroll-outer:hover .cd-nominee-track{animation-play-state:paused;}
+    @keyframes cdNomineeScroll{
+      0%{transform:translateX(0);}
+      100%{transform:translateX(-50%);}
+    }
+    .cd-mini-card{
+      width:148px;
+      flex:0 0 auto;
+      background:var(--white);
+      border:1px solid #EDF3EF;
+      transition:var(--ease);
+      border-radius:4px;
+    }
+    .cd-mini-card:hover{border-color:var(--green-bright);box-shadow:0 8px 18px rgba(16,26,22,.1);}
+    .cd-mini-card .img-wrap{position:relative;overflow:hidden;aspect-ratio:1/1;border-radius:4px 4px 0 0;}
+    .cd-mini-card .img-wrap img{width:100%;height:100%;object-fit:cover;}
+    .cd-mini-card .body{padding:.6rem .65rem .75rem;text-align:center;}
+    .cd-mini-card .name{font-weight:700;font-size:.74rem;margin-bottom:.4rem;line-height:1.2;font-family:var(--font-display);}
+    .cd-mini-progress{height:4px;background:#E8EDE9;border-radius:10px;overflow:hidden;margin-bottom:.3rem;}
+    .cd-mini-progress-fill{height:100%;background:var(--green-bright);border-radius:10px;}
+    .cd-mini-votes{font-size:.58rem;color:var(--muted);margin-bottom:.5rem;}
+    .cd-mini-vote-btn{width:100%;background:var(--dark);color:var(--ivory);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:.4rem;border:1px solid var(--dark);border-radius:4px;transition:var(--ease);cursor:pointer;}
+    .cd-mini-vote-btn:hover:not(:disabled){background:var(--green-bright);border-color:var(--green-bright);color:var(--dark);}
+    .cd-mini-vote-btn.voted{background:var(--gold);border-color:var(--gold);color:var(--dark);}
+    .cd-mini-vote-btn:disabled{cursor:not-allowed;opacity:.65;}
+
+    .purpose-block{background:var(--green-deep);color:var(--ivory);display:flex;align-items:center;gap:1.1rem;padding:1.5rem 1.6rem;height:100%;}
+    .purpose-block i{font-size:1.7rem;color:var(--gold-soft);flex-shrink:0;}
+    .purpose-block .k{font-size:.78rem;color:#BFD3C7;margin-bottom:.15rem;}
+    .purpose-block .v{font-weight:700;font-size:1.05rem;font-family:var(--font-display);}
+
+    .judge-card{text-align:center;}
+    .judge-card img{width:104px;height:104px;border-radius:50%!important;object-fit:cover;margin:0 auto .75rem;border:3px solid var(--gold-soft);}
+    .judge-card h5{font-size:.94rem;margin-bottom:.1rem;font-family:var(--font-display);font-weight:700;}
+    .judge-card .role{font-size:.72rem;color:var(--green);font-weight:700;margin-bottom:.4rem;}
+    .judge-card p{font-size:.8rem;color:var(--muted);}
+
+    .method-step{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line-light);}
+    .method-num{font-weight:700;font-size:1.2rem;color:var(--gold);width:2.2rem;flex-shrink:0;font-family:var(--font-display);}
+    .method-step h5{font-size:.94rem;margin-bottom:.2rem;color:var(--ivory);font-family:var(--font-display);font-weight:700;}
+    .method-step p{font-size:.82rem;color:#9FB1A8;margin-bottom:0;}
+
+    .news-card{background:var(--white);overflow:hidden;transition:var(--ease);height:100%;border:1px solid #E8F0EC;}
+    .news-card:hover{transform:translateY(-4px);box-shadow:0 12px 26px rgba(46,184,114,.1);border-color:var(--green-bright);}
+    .news-card img{width:100%;height:170px;object-fit:cover;}
+    .news-card .news-body{padding:1.1rem 1.2rem;}
+    .news-card .news-body .tag{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green-bright);font-weight:700;}
+    .news-card .news-body h5{font-size:1rem;font-weight:700;color:var(--ink);margin:.4rem 0;font-family:var(--font-display);}
+    .news-card .news-body p{font-size:.83rem;color:var(--muted);margin-bottom:.7rem;line-height:1.55;}
+    .news-card .btn-read{color:var(--green);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid transparent;transition:var(--ease);}
+    .news-card .btn-read:hover{border-bottom-color:var(--green);color:var(--green-deep);}
+
+    .ceremony-detail{display:flex;gap:.85rem;padding:.65rem 0;border-bottom:1px solid var(--line-light);}
+    .ceremony-detail i{color:var(--gold);font-size:1.05rem;width:22px;}
+    .ceremony-detail .lbl{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#9FB1A8;}
+    .ceremony-detail .val{font-weight:700;color:var(--ivory);font-size:.92rem;font-family:var(--font-display);}
+
+    .infinity-scroll{overflow:hidden;position:relative;width:100%;padding:12px 0;}
+    .scroll-track{display:flex;gap:16px;width:max-content;animation:scrollLeft 30s linear infinite;}
+    .scroll-track:hover{animation-play-state:paused;}
+    .scroll-track-right{animation:scrollRight 30s linear infinite;}
+    .scroll-item{flex:0 0 auto;width:230px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);transition:transform .3s ease;}
+    .scroll-item:hover{transform:scale(1.04);}
+    .scroll-item img{width:100%;height:170px;object-fit:cover;display:block;}
+    @keyframes scrollLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    @keyframes scrollRight{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
+
+    .partner-tile{display:flex;align-items:center;justify-content:center;height:74px;border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:.78rem;letter-spacing:.04em;text-align:center;padding:.5rem;background:var(--white);transition:var(--ease);}
+    .partner-tile:hover{border-color:var(--green-bright);color:var(--green);}
+
+    .form-control-moika{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.28);border-radius:0;color:var(--ivory);padding:.6rem .1rem;font-size:.9rem;font-family:var(--font-body);}
+    .form-control-moika::placeholder{color:#7C8B83;}
+    .form-control-moika:focus{background:transparent;color:var(--ivory);border-bottom-color:var(--gold);box-shadow:none;}
+    .form-label-moika{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;margin-bottom:.3rem;font-family:var(--font-body);}
+
+    .edition-tab{background:transparent;border:1px solid rgba(0,0,0,.15);color:var(--ink);padding:.5rem 1.2rem;font-family:var(--font-display);font-weight:700;font-size:.82rem;cursor:pointer;transition:var(--ease);}
+    .edition-tab.active,.edition-tab:hover{background:var(--green-deep);color:var(--ivory);border-color:var(--green-deep);}
+    .hof-winner{background:var(--white);border:1px solid var(--line);padding:1rem;display:flex;gap:.85rem;align-items:center;transition:var(--ease);}
+    .hof-winner:hover{border-color:var(--gold);}
+    .hof-winner img{width:54px;height:54px;object-fit:cover;border-radius:50%!important;}
+    .hof-winner .cat{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+    .hof-winner .nm{font-weight:700;font-size:.9rem;font-family:var(--font-display);}
+
+    .winner-card{background:var(--dark);border:1px solid var(--gold);padding:2rem;text-align:center;}
+    .winner-card .goldline{color:var(--gold);font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;}
+    .winner-card img{width:100px;height:100px;border-radius:50%!important;object-fit:cover;margin:1rem auto;border:3px solid var(--gold);}
+    .winner-card h3{color:var(--ivory);font-size:1.5rem;margin-bottom:.25rem;font-family:var(--font-display);font-weight:700;}
+    .winner-card .wcat{color:var(--gold-soft);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;}
+
+    .faq-badge{background:var(--green-deep);color:var(--ivory);width:100%;min-height:200px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.6rem;}
+    .faq-badge i{font-size:3rem;color:var(--gold);}
+    .faq-badge span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#BFD3C7;font-weight:700;}
+    .faq-item{border-bottom:1px solid var(--line);padding:.7rem 0;}
+    .faq-item:last-child{border-bottom:none;}
+    .faq-question{font-weight:700;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;font-size:.94rem;font-family:var(--font-display);}
+    .faq-question i{transition:.3s;color:var(--green);}
+    .faq-question.open i{transform:rotate(180deg);color:var(--gold);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s ease;color:var(--muted);padding:0 .1rem;font-size:.86rem;}
+    .faq-answer.open{max-height:220px;padding:.5rem .1rem .7rem;}
+
+    .final-cta{background:var(--green-deep);color:var(--ivory);text-align:center;border-top:3px solid var(--gold);}
+
+    .footer-moika{background:#0C1410;color:#9FB1A8;padding:3rem 0 1.2rem;}
+    .footer-moika h6{color:var(--gold-soft);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;font-weight:700;}
+    .footer-moika a.flink{display:block;color:#9FB1A8;font-size:.86rem;padding:.3rem 0;transition:var(--ease);}
+    .footer-moika a.flink:hover{color:var(--gold);padding-left:.25rem;}
+    .footer-brand{font-weight:700;font-size:1.2rem;color:var(--ivory);font-family:var(--font-display);letter-spacing:-0.02em;}
+    .footer-brand span{color:var(--gold);}
+    .footer-brand .sub{display:block;font-size:.45rem;letter-spacing:.2em;font-weight:600;color:#6C7B72;margin-top:-2px;font-family:var(--font-body);}
+    .social-icon{width:34px;height:34px;border:1px solid var(--line-light);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#9FB1A8;transition:var(--ease);}
+    .social-icon:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+    .newsletter-box{position:relative;max-width:320px;}
+    .newsletter-box input{background:#152018;border:1px solid var(--line-light);color:var(--ivory);padding:.65rem 5.4rem .65rem 1rem;font-size:.85rem;width:100%;font-family:var(--font-body);}
+    .newsletter-box input::placeholder{color:#6C7B72;}
+    .newsletter-box button{position:absolute;top:3px;right:3px;bottom:3px;padding:0 .9rem;}
+
+    .vote-float{position:fixed;bottom:24px;right:24px;z-index:999;background:var(--dark);color:#fff;padding:.7rem 1.1rem .7rem .9rem;box-shadow:0 10px 28px rgba(0,0,0,.22);display:none;align-items:center;gap:.7rem;cursor:pointer;border:none;transition:var(--ease);}
+    .vote-float.visible{display:flex;}
+    .vote-float:hover{transform:scale(1.05);background:var(--green-deep);}
+    .vote-float .badge-vote{background:var(--gold);color:var(--dark);padding:1px 9px;font-weight:700;font-size:.8rem;}
+    .vote-float i{font-size:1.25rem;color:var(--gold-soft);}
+
+    .modal-moika .modal-content{background:var(--white);border-radius:2px;border:none;}
+    .modal-moika .modal-header{border-bottom:1px solid var(--line);}
+    .modal-moika .modal-title{font-family:var(--font-display);font-weight:700;}
+    .search-input{background:transparent;border:none;border-bottom:2px solid var(--gold);border-radius:0;font-size:1.15rem;padding:.5rem 0;color:var(--ink);font-family:var(--font-body);}
+    .search-input:focus{box-shadow:none;background:transparent;color:var(--ink);}
+    .search-result-item{padding:.7rem 0;border-bottom:1px solid var(--line);}
+    .search-result-item .k{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;}
+
+    .toast-moika{position:fixed;bottom:1.3rem;left:1.3rem;z-index:2000;background:var(--dark);color:var(--ivory);padding:.85rem 1.2rem;border-radius:2px;border-left:3px solid var(--green-bright);box-shadow:0 10px 26px rgba(0,0,0,.3);transform:translateY(120%);opacity:0;transition:var(--ease);font-size:.85rem;max-width:300px;}
+    .toast-moika.show{transform:translateY(0);opacity:1;}
+
+    .scroll-top-btn{position:fixed;bottom:24px;left:24px;z-index:999;width:46px;height:46px;border-radius:50%;background:var(--gold);color:var(--dark);border:none;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 10px 24px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(14px);transition:var(--ease);cursor:pointer;}
+    .scroll-top-btn.visible{opacity:1;visibility:visible;transform:translateY(0);}
+    .scroll-top-btn:hover{background:var(--gold-soft);transform:translateY(-3px);}
+
+    .reveal{opacity:0;transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);will-change:transform,opacity;}
+    .reveal-up{transform:translateY(64px);}
+    .reveal-left{transform:translateX(-72px);}
+    .reveal-right{transform:translateX(72px);}
+    .reveal-scale{transform:scale(.94);}
+    .reveal.revealed{opacity:1;transform:translate(0,0) scale(1);}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+    @media(max-width:575px){.section-pad{padding:2.1rem 0;}}
+    .wow{visibility:hidden;}
+  </style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<div class="topbar d-none d-lg-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center gap-4">
+      <span><i class="fas fa-award"></i>Pinnacle Excellence Awards Africa</span>
+      <span><i class="fas fa-envelope"></i>info@pinnacleexcellenceawards.com</span>
+    </div>
+    <div class="social">
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-moika" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand-moika" href="#top">PINNACLE <span>EXCELLENCE</span><span class="sub">AWARDS AFRICA</span></a>
+    <button class="navbar-toggler-moika d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav" aria-label="Open menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="d-none d-lg-flex align-items-center ms-auto">
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item"><a class="nav-link nav-link-moika" href="#nominees">Nominees</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-moika" href="#categories">Categories</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-moika" href="#the-night">The Night</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-moika" href="#hall-of-fame">Winners</a></li>
+      </ul>
+      <button class="btn btn-link p-0 ms-3" style="color:#FFFFFF;font-size:1rem;" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search Pinnacle Excellence Awards">
+        <i class="fas fa-search"></i>
+      </button>
+      <a href="#vote-section" class="btn btn-gold ms-3">Vote Now</a>
+    </div>
+  </div>
+</nav>
+
+<div class="offcanvas offcanvas-start offcanvas-moika" tabindex="-1" id="mobileNav" aria-labelledby="mobileNavLabel">
+  <div class="offcanvas-header">
+    <span class="navbar-brand-moika" id="mobileNavLabel">PINNACLE <span>EXCELLENCE</span><span class="sub">AWARDS AFRICA</span></span>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a class="nav-link-moika" href="#nominees" data-bs-dismiss="offcanvas">Nominees</a>
+    <a class="nav-link-moika" href="#categories" data-bs-dismiss="offcanvas">Categories</a>
+    <a class="nav-link-moika" href="#the-night" data-bs-dismiss="offcanvas">The Night</a>
+    <a class="nav-link-moika" href="#hall-of-fame" data-bs-dismiss="offcanvas">Winners</a>
+    <a href="#vote-section" class="btn btn-gold w-100 mt-4" data-bs-dismiss="offcanvas">Vote Now</a>
+    <button class="btn btn-outline-ivory w-100 mt-2" data-bs-toggle="modal" data-bs-target="#searchModal" data-bs-dismiss="offcanvas"><i class="fas fa-search me-2"></i>Search</button>
+  </div>
+</div>
+
+<main id="main-content">
+
+<!-- HERO - FULL SCREEN BACKGROUND SLIDER -->
+<section class="hero-moika" id="top">
+  <div class="hero-slider" id="heroSlider">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=1600&q=80');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1600&q=80');"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1600&q=80');"></div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-edition wow fadeInUp">Pinnacle Excellence Awards Africa 2026</div>
+    
+    <h1 class="hero-title wow fadeInUp" data-wow-delay=".15s">
+      Honouring Those<br>
+      <span class="line2">Who Inspire Greatness</span>
+    </h1>
+    
+    <p class="hero-tagline wow fadeInUp" data-wow-delay=".25s">
+      <span class="gold">Celebrating Excellence</span>
+      <span class="dot">·</span>
+      <span>Inspiring Impact</span>
+      <span class="dot">·</span>
+      <span>Honouring Greatness</span>
+    </p>
+
+    <div class="hero-buttons wow fadeInUp" data-wow-delay=".35s">
+      <a href="#vote-section" class="btn btn-gold">Vote Now</a>
+      <a href="#nominate" class="btn btn-outline-ivory">Nominate</a>
+      <a href="#nominees" class="btn btn-outline-ivory">Explore</a>
+    </div>
+
+    <div class="hero-countdown wow fadeInUp" data-wow-delay=".4s">
+      <span class="hero-countdown-label">The Night Begins In</span>
+      <div class="hcd-unit"><span class="num" id="hero-cd-hrs">00</span><span class="lbl2">Hrs</span></div>
+      <span class="hcd-colon">:</span>
+      <div class="hcd-unit"><span class="num" id="hero-cd-min">00</span><span class="lbl2">Min</span></div>
+      <span class="hcd-colon">:</span>
+      <div class="hcd-unit"><span class="num" id="hero-cd-sec">00</span><span class="lbl2">Sec</span></div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<section class="stats-block reveal reveal-up">
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-6 col-md-3 stat-cell wow fadeInUp" data-wow-delay=".05s"><i class="fas fa-th-large"></i><div class="stat-num" data-count="24">0</div><div class="stat-label">Categories</div></div>
+      <div class="col-6 col-md-3 stat-cell wow fadeInUp" data-wow-delay=".1s"><i class="fas fa-users"></i><div class="stat-num" data-count="150">0</div><div class="stat-label">Nominees</div></div>
+      <div class="col-6 col-md-3 stat-cell wow fadeInUp" data-wow-delay=".15s"><i class="fas fa-star"></i><div class="stat-num" data-count="1">0</div><div class="stat-label">Night</div></div>
+      <div class="col-6 col-md-3 stat-cell wow fadeInUp" data-wow-delay=".2s"><i class="fas fa-trophy"></i><div class="stat-num" data-count="1">0</div><div class="stat-label">Legacy</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad reveal reveal-up" id="nominees">
+  <div class="container">
+    <div class="featured-wrap">
+      <div class="row align-items-end mb-3 wow fadeInUp">
+        <div class="col-lg-7">
+          <span class="eyebrow">Meet The Field</span>
+          <h2 class="section-title mt-2">The Nominees</h2>
+          <p class="section-sub mb-0">Meet the people defining this year's race across Africa. Demo profiles shown for interface preview.</p>
+        </div>
+      </div>
+      <div class="filter-pills mb-4 wow fadeInUp" id="nomineeFilters">
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="Entertainment">Entertainment</button>
+        <button class="filter-pill" data-filter="Creative">Creative</button>
+        <button class="filter-pill" data-filter="Business">Business</button>
+        <button class="filter-pill" data-filter="Leadership">Leadership</button>
+        <button class="filter-pill" data-filter="Innovation">Innovation</button>
+      </div>
+      <div class="nominee-scroll-outer wow fadeIn">
+        <div class="nominee-scroll-track" id="nomineeScrollTrack"></div>
+      </div>
+      <div class="text-center mt-4 wow fadeInUp">
+        <button type="button" class="btn btn-outline-ink" id="viewMoreNomineesBtn">View More Nominees</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-dark section-pad reveal reveal-left" id="the-race">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 mb-4 mb-lg-0 wow fadeInUp">
+        <span class="eyebrow on-dark">Live Standings · Demo Data</span>
+        <h2 class="section-title mt-2">The Race</h2>
+        <p class="section-sub mb-3">Trending nominees this week. Rankings shown are demonstration values, not official vote counts.</p>
+        <a href="#vote-section" class="btn btn-gold">Cast Your Vote</a>
+      </div>
+      <div class="col-lg-7 wow fadeInUp" data-wow-delay=".1s">
+        <div id="rankingList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad bg-soft reveal reveal-up" id="categories">
+  <div class="container">
+    <div class="text-center mb-4 wow fadeInUp">
+      <span class="eyebrow justify-content-center">Fields Of Recognition</span>
+      <h2 class="section-title mt-2">The Categories</h2>
+      <p class="section-sub mx-auto text-center">From culture and creativity to business, leadership and impact across Africa. Pick a category to see who's in the running.</p>
+    </div>
+    <div class="row g-4 wow fadeInUp" data-wow-delay=".1s">
+      <div class="col-lg-5">
+        <select class="category-select" id="categorySelect" aria-label="Select a category"></select>
+        <div class="category-scroll-outer">
+          <div class="category-scroll-track-v" id="categoryExplorerList"></div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="category-detail-panel" id="categoryDetailPanel"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad reveal reveal-up" id="academy">
+  <div class="container">
+    <div class="row g-4 mb-4 align-items-stretch wow fadeInUp">
+      <div class="col-lg-6">
+        <span class="eyebrow">The Academy</span>
+        <h2 class="section-title mt-2">Recognition Deserves Standards.</h2>
+      </div>
+      <div class="col-lg-6">
+        <div class="purpose-block">
+          <i class="fas fa-shield-alt"></i>
+          <div><div class="k">Independent judging</div><div class="v">Meet the people shaping the shortlist</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-3" id="judgeGrid"></div>
+  </div>
+</section>
+
+<section class="bg-dark section-pad reveal reveal-right" id="methodology">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-5 wow fadeInUp">
+        <span class="eyebrow on-dark">The Process</span>
+        <h2 class="section-title mt-2">How Pinnacle Excellence Decides</h2>
+        <p class="section-sub">Official judging and voting methodology will be published closer to the ceremony.</p>
+      </div>
+      <div class="col-lg-7 wow fadeInUp" data-wow-delay=".1s"><div id="methodList"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad reveal reveal-up" id="moika-now">
+  <div class="container">
+    <div class="row align-items-end mb-4 wow fadeInUp">
+      <div class="col-lg-7"><span class="eyebrow">The Newsroom</span><h2 class="section-title mt-2">Pinnacle Now</h2><p class="section-sub mb-0">The people, the culture, the journey — inside this year's race.</p></div>
+      <div class="col-lg-5 text-lg-end mt-3 mt-lg-0"><a href="#" class="btn btn-outline-ink">All News</a></div>
+    </div>
+    <div class="row g-3" id="storyGrid"></div>
+  </div>
+</section>
+
+<section class="bg-dark section-pad reveal reveal-left" id="the-night">
+  <div class="container">
+    <div class="row gy-4 align-items-center">
+      <div class="col-lg-6 wow fadeInUp">
+        <span class="eyebrow on-dark">Pinnacle Excellence Awards Africa 2026</span>
+        <h2 class="section-title mt-2">The Night Of Recognition</h2>
+        <p class="section-sub mb-3">One night. One stage. Every field of excellence, together in celebration.</p>
+        <div>
+          <div class="ceremony-detail"><i class="fas fa-calendar-alt"></i><div><div class="lbl">Date</div><div class="val">To Be Announced</div></div></div>
+          <div class="ceremony-detail"><i class="fas fa-map-marker-alt"></i><div><div class="lbl">Venue</div><div class="val">To Be Announced</div></div></div>
+          <div class="ceremony-detail"><i class="fas fa-microphone"></i><div><div class="lbl">Hosts</div><div class="val">To Be Announced</div></div></div>
+          <div class="ceremony-detail"><i class="fas fa-star"></i><div><div class="lbl">Dress Code</div><div class="val">To Be Announced</div></div></div>
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeIn" data-wow-delay=".1s">
+        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=900&q=80" class="img-fluid" alt="Empty stage set for an awards ceremony, lights on" style="height:280px;object-fit:cover;width:100%;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:2.2rem 0;" class="reveal reveal-up" id="moments">
+  <div class="container mb-3">
+    <div class="text-center wow fadeInUp"><span class="eyebrow justify-content-center">The Gallery</span><h2 class="section-title mt-2">Pinnacle Moments</h2></div>
+  </div>
+  <div class="infinity-scroll wow fadeIn" style="background:#F5F8F6;">
+    <div class="container"><div class="scroll-track" id="momentsTrackA"></div></div>
+  </div>
+  <div class="infinity-scroll wow fadeIn" style="background:#EAF0EC;">
+    <div class="container"><div class="scroll-track scroll-track-right" id="momentsTrackB"></div></div>
+  </div>
+</section>
+
+<section class="section-pad bg-soft reveal reveal-scale" id="partners">
+  <div class="container">
+    <div class="text-center mb-4 wow fadeInUp"><span class="eyebrow justify-content-center">Powered By</span><h2 class="section-title mt-2">Our Partners</h2></div>
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg-2 wow fadeInUp"><div class="partner-tile">Presenting Partner</div></div>
+      <div class="col-6 col-md-4 col-lg-2 wow fadeInUp" data-wow-delay=".05s"><div class="partner-tile">Category Partner</div></div>
+      <div class="col-6 col-md-4 col-lg-2 wow fadeInUp" data-wow-delay=".1s"><div class="partner-tile">Media Partner</div></div>
+      <div class="col-6 col-md-4 col-lg-2 wow fadeInUp" data-wow-delay=".15s"><div class="partner-tile">Technology Partner</div></div>
+      <div class="col-6 col-md-4 col-lg-2 wow fadeInUp" data-wow-delay=".2s"><div class="partner-tile">Community Partner</div></div>
+      <div class="col-6 col-md-4 col-lg-2 wow fadeInUp" data-wow-delay=".25s"><div class="partner-tile">Become A Partner</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-green section-pad reveal reveal-up" id="nominate">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-5 wow fadeInUp">
+        <span class="eyebrow on-dark">Recognition Starts With You</span>
+        <h2 class="section-title mt-2">See Someone Who Deserves It?</h2>
+        <p class="section-sub">Nominate them. Tell us who is shaping culture, business, leadership or impact across Africa this year.</p>
+      </div>
+      <div class="col-lg-7 wow fadeInUp" data-wow-delay=".1s">
+        <form id="nominateForm" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label-moika" for="nomName">Nominee Name</label><input type="text" class="form-control form-control-moika" id="nomName" placeholder="Full name" required></div>
+            <div class="col-md-6"><label class="form-label-moika" for="nomCategory">Category</label>
+              <select class="form-select form-control-moika" id="nomCategory" required>
+                <option value="" selected disabled>Select a category</option>
+                <option>Music Personality of the Year</option><option>Content Creator of the Year</option><option>Entrepreneur of the Year</option><option>Young Leader of the Year</option><option>Innovator of the Year</option><option>Humanitarian of the Year</option>
+              </select>
+            </div>
+            <div class="col-12"><label class="form-label-moika" for="nomDesc">Description</label><textarea class="form-control form-control-moika" id="nomDesc" rows="2" placeholder="Tell us about them" required></textarea></div>
+            <div class="col-md-6"><label class="form-label-moika" for="subName">Your Name</label><input type="text" class="form-control form-control-moika" id="subName" required></div>
+            <div class="col-md-6"><label class="form-label-moika" for="subEmail">Your Email</label><input type="email" class="form-control form-control-moika" id="subEmail" required></div>
+            <div class="col-12 mt-3"><button type="submit" class="btn btn-gold">Submit A Nomination</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad reveal reveal-up" id="hall-of-fame">
+  <div class="container">
+    <div class="text-center mb-4 wow fadeInUp"><span class="eyebrow justify-content-center">The Institution</span><h2 class="section-title mt-2">Hall Of Fame</h2><p class="section-sub mx-auto text-center">Sample editions shown for interface preview.</p></div>
+    <div class="d-flex justify-content-center gap-2 flex-wrap mb-4 wow fadeInUp" id="editionTabs"></div>
+    <div class="row g-3" id="hofGrid"></div>
+  </div>
+</section>
+
+
+
+<section class="section-pad bg-soft reveal reveal-up" id="faq">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-5 wow fadeInUp">
+        <div class="faq-badge mb-4"><i class="fas fa-question-circle"></i><span>Need Help?</span></div>
+        <span class="eyebrow">Questions</span>
+        <h2 class="section-title mt-2">FAQ</h2>
+        <p class="section-sub">Official details will be announced by Pinnacle Excellence Awards Africa where not yet confirmed.</p>
+      </div>
+      <div class="col-lg-7 wow fadeInUp" data-wow-delay=".1s"><div id="faqList"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta section-pad reveal reveal-scale">
+  <div class="container">
+    <div class="wow fadeInUp">
+      <span class="eyebrow on-dark justify-content-center">Pinnacle Excellence Awards Africa 2026</span>
+      <h2 class="section-title mt-2">Your Voice Matters.</h2>
+      <p class="section-sub mx-auto text-center">Celebrate excellence. Discover the nominees. Cast your vote.</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center mt-3">
+        <a href="#vote-section" class="btn btn-gold">Vote Now</a>
+        <a href="#nominees" class="btn btn-outline-ivory">Explore Nominees</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="vote-section"></div>
+
+</main>
+
+<footer class="footer-moika">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <div class="footer-brand mb-3">PINNACLE <span>EXCELLENCE</span><span class="sub">AWARDS AFRICA</span></div>
+        <p class="small">Celebrating Excellence.<br>Inspiring Impact.<br>Honouring Greatness.</p>
+        <div class="d-flex gap-2 mt-3">
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" aria-label="X"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Explore</h6>
+        <a href="#nominees" class="flink">Nominees</a><a href="#categories" class="flink">Categories</a><a href="#winners" class="flink">Winners</a><a href="#moika-now" class="flink">Pinnacle Now</a><a href="#hall-of-fame" class="flink">Hall of Fame</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Participate</h6>
+        <a href="#vote-section" class="flink">Vote</a><a href="#nominate" class="flink">Nominate</a><a href="#partners" class="flink">Become a Partner</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Pinnacle</h6>
+        <a href="#academy" class="flink">The Academy</a><a href="#methodology" class="flink">Methodology</a><a href="#the-night" class="flink">The Night</a><a href="#faq" class="flink">Contact</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Newsletter</h6>
+        <p class="small">Stay updated on nominees and results.</p>
+        <div class="newsletter-box"><input type="text" placeholder="Your email"><button type="button" class="btn btn-gold btn-sm2">Join</button></div>
+      </div>
+    </div>
+    <div class="rule my-4" style="background:var(--line-light);"></div>
+    <div class="d-flex flex-column flex-md-row justify-content-between small text-center text-md-start gap-2">
+      <span>&copy; <span id="yearNow"></span> Pinnacle Excellence Awards Africa. All rights reserved.</span>
+      <span>A digital awards platform prototype. Demo content shown for interface preview.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="vote-float" id="voteFloat">
+  <i class="fas fa-ticket-alt"></i>
+  <span class="badge-vote" id="voteCount">0</span>
+  <span id="voteBubble">Votes Cast</span>
+</button>
+
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+<div class="modal fade modal-moika" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title font-display" id="searchModalLabel">Search</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><input type="text" class="form-control search-input" id="searchInput" placeholder="Find a nominee, category or winner..." autocomplete="off"><div id="searchResults" class="mt-3"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-moika" id="allNomineesModal" tabindex="-1" aria-labelledby="allNomineesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title font-display" id="allNomineesModalLabel">All Nominees</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><div class="row g-3" id="allNomineesGrid"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-moika" id="payModal" tabindex="-1" aria-labelledby="payModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title font-display" id="payModalLabel">Confirm Your Vote</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body">
+        <p class="mb-1 fw-bold" id="payNomineeName"></p>
+        <p class="muted small mb-3" id="payCategoryName"></p>
+        <p class="mb-3 small">Each vote costs <strong>KSH 10</strong>. Enter your phone number to pay via M-Pesa and cast your vote.</p>
+        <label class="form-label-moika" style="color:var(--green)" for="payPhone">Phone Number</label>
+        <input type="tel" class="form-control mb-2" id="payPhone" placeholder="e.g. 0712345678" style="border-radius:4px;border:1px solid rgba(0,0,0,.15);">
+        <div id="payStatus" class="small mt-2"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-ink" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-gold" id="payConfirmBtn">Pay KSH 10 &amp; Vote</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-moika" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header"><h5 class="modal-title font-display" id="categoryModalLabel">Category</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body" id="categoryModalBody"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade modal-moika" id="voteModal" tabindex="-1" aria-labelledby="voteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-3">
+      <div class="modal-body">
+        <i class="fas fa-check-circle" style="font-size:2.4rem;color:var(--green-bright);"></i>
+        <h5 class="font-display mt-3" id="voteModalTitle">Vote Submitted</h5>
+        <p class="muted" id="voteModalText">Thank you for voting. Your voice has been counted for this category.</p>
+        <button type="button" class="btn btn-gold mt-2" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-moika" id="toastMoika"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+
+<script>
+// HERO BACKGROUND SLIDER
+const heroSlides = document.querySelectorAll('.hero-slide');
+let currentSlide = 0;
+let slideInterval = null;
+
+function goToSlide(index) {
+  heroSlides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % heroSlides.length;
+  goToSlide(currentSlide);
+}
+
+function startSlider() {
+  if (slideInterval) clearInterval(slideInterval);
+  slideInterval = setInterval(nextSlide, 5000);
+}
+
+function stopSlider() {
+  if (slideInterval) {
+    clearInterval(slideInterval);
+    slideInterval = null;
+  }
+}
+
+startSlider();
+
+const hero = document.querySelector('.hero-moika');
+hero.addEventListener('mouseenter', stopSlider);
+hero.addEventListener('mouseleave', startSlider);
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+hero.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+});
+
+hero.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) {
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+    } else {
+      currentSlide = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
+    }
+    goToSlide(currentSlide);
+    stopSlider();
+    startSlider();
+  }
+});
+
+// ============================================================
+// MAIN APPLICATION DATA
+// ============================================================
+
+const PINNACLE_CONFIG={edition:{status:"voting_open"},votePriceKsh:10};
+
+function getAvatar(gender) {
+  if (gender === 'female' || gender === 'woman') {
+    return 'img/woman.jpg';
+  } else {
+    return 'img/man.jpg';
+  }
+}
+
+const CATEGORY_GROUPS=[
+ {group:"Entertainment",icon:"bi-mic-fill",categories:[
+  {name:"Music Personality of the Year",desc:"Recognising outstanding contribution to music this year."},
+  {name:"Actor of the Year",desc:"Celebrating standout performance on screen or stage."},
+  {name:"Comedian of the Year",desc:"Honouring the voice that made the nation laugh."},
+  {name:"Television Personality of the Year",desc:"For presence and impact across television."}]},
+ {group:"Creative",icon:"bi-palette-fill",categories:[
+  {name:"Content Creator of the Year",desc:"Recognising digital storytelling and influence."},
+  {name:"Creative Personality of the Year",desc:"For bold, original creative work."},
+  {name:"Fashion Personality of the Year",desc:"Celebrating style and design leadership."},
+  {name:"Artist of the Year",desc:"Honouring excellence across the visual arts."}]},
+ {group:"Business",icon:"bi-briefcase-fill",categories:[
+  {name:"Entrepreneur of the Year",desc:"For vision and execution in building something new."},
+  {name:"Business Leader of the Year",desc:"Recognising leadership at scale."},
+  {name:"Startup of the Year",desc:"Celebrating the boldest new venture."},
+  {name:"Brand of the Year",desc:"For a brand that shaped culture and commerce."}]},
+ {group:"Leadership",icon:"bi-flag-fill",categories:[
+  {name:"Young Leader of the Year",desc:"Recognising leadership before thirty."},
+  {name:"Community Leader of the Year",desc:"For service that strengthens community."},
+  {name:"Woman of Impact",desc:"Celebrating a woman shaping the nation's story."},
+  {name:"Leadership Excellence Award",desc:"For sustained, principled leadership."}]},
+ {group:"Innovation",icon:"bi-lightbulb-fill",categories:[
+  {name:"Innovator of the Year",desc:"For an idea that changed how things are done."},
+  {name:"Technology Personality of the Year",desc:"Recognising leadership in technology."},
+  {name:"Digital Innovation Award",desc:"Celebrating digital-first breakthroughs."}]},
+ {group:"Social Impact",icon:"bi-heart-fill",categories:[
+  {name:"Humanitarian of the Year",desc:"For selfless service to others."},
+  {name:"Community Impact Award",desc:"Recognising work that transformed a community."},
+  {name:"Youth Impact Award",desc:"Celebrating young people driving change."}]}
+];
+const FLAT_CATEGORIES=CATEGORY_GROUPS.flatMap(g=>g.categories.map(c=>({...c,group:g.group})));
+
+const NOMINEES=[
+ {name:"Amina Njeri",group:"Creative",category:"Creative Personality of the Year",desc:"A multidisciplinary creative reshaping visual storytelling across Africa.",votes:342,gender:"woman"},
+ {name:"David Kamau",group:"Business",category:"Entrepreneur of the Year",desc:"Founder scaling a venture across the region.",votes:288,gender:"man"},
+ {name:"Nia Wambui",group:"Entertainment",category:"Music Personality of the Year",desc:"Breakout artist defining this year's sound.",votes:410,gender:"woman"},
+ {name:"Brian Otieno",group:"Innovation",category:"Innovator of the Year",desc:"Engineer behind a widely adopted new solution.",votes:195,gender:"man"},
+ {name:"Faith Chebet",group:"Leadership",category:"Young Leader of the Year",desc:"Leading a youth movement with national reach.",votes:260,gender:"woman"},
+ {name:"Samuel Mwangi",group:"Creative",category:"Content Creator of the Year",desc:"Storyteller whose work reaches millions weekly.",votes:330,gender:"man"},
+ {name:"Grace Achieng",group:"Business",category:"Business Leader of the Year",desc:"Executive steering major regional growth.",votes:300,gender:"woman"},
+ {name:"Peter Kiptoo",group:"Entertainment",category:"Comedian of the Year",desc:"Comic voice behind this year's biggest laughs.",votes:250,gender:"man"}
+];
+
+const RANKINGS=[
+ {name:"Amina Njeri",category:"Creative Personality of the Year",move:"up",val:"2",gender:"woman"},
+ {name:"David Kamau",category:"Entrepreneur of the Year",move:"down",val:"1",gender:"man"},
+ {name:"Nia Wambui",category:"Music Personality of the Year",move:"new",val:"",gender:"woman"},
+ {name:"Brian Otieno",category:"Innovator of the Year",move:"up",val:"3",gender:"man"},
+ {name:"Faith Chebet",category:"Young Leader of the Year",move:"down",val:"2",gender:"woman"}
+];
+
+const JUDGES=[
+ {name:"Dr. Lilian Wanjiru",role:"Media & Culture",bio:"Two decades in broadcast journalism and cultural criticism across Africa.",gender:"woman"},
+ {name:"James Mutiso",role:"Business & Innovation",bio:"Investor and mentor to early-stage founders across the region.",gender:"man"},
+ {name:"Esther Nduta",role:"Arts & Entertainment",bio:"Award-winning producer and champion of local storytelling.",gender:"woman"},
+ {name:"Michael Ochieng",role:"Civic Leadership",bio:"Public policy advisor focused on community development.",gender:"man"}
+];
+
+const METHOD_STEPS=[
+ {n:"01",t:"Nominate",d:"The public and the Academy submit nominations across all categories."},
+ {n:"02",t:"Screen",d:"Every nomination is reviewed for eligibility and completeness."},
+ {n:"03",t:"Shortlist",d:"The Academy narrows each category to a final shortlist."},
+ {n:"04",t:"Judge",d:"Category judges evaluate shortlisted nominees against published criteria."},
+ {n:"05",t:"Public Vote",d:"The public casts votes for their favourite nominees."},
+ {n:"06",t:"Crown",d:"Winners are revealed live on the night."}
+];
+
+const STORIES=[
+ {tag:"Announcement",title:"Nominees Revealed",excerpt:"Meet the names competing for this year's biggest honours.",img:"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80"},
+ {tag:"Voting",title:"Voting Is Live",excerpt:"The public can now have its say across every category.",img:"https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80"},
+ {tag:"Academy",title:"Meet The Academy",excerpt:"Meet the people entrusted with shaping the shortlist.",img:"https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80"}
+];
+
+const MOMENTS_IMAGES=[
+ "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&q=80",
+ "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&q=80",
+ "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=500&q=80",
+ "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=500&q=80",
+ "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500&q=80",
+ "https://images.unsplash.com/photo-1522158637959-30385a09e0da?w=500&q=80",
+ "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&q=80",
+ "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=500&q=80"
+];
+const MOMENTS_B=[
+ "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&q=80",
+ "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=500&q=80",
+ "https://images.unsplash.com/photo-1522158637959-30385a09e0da?w=500&q=80",
+ "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=500&q=80",
+ "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=500&q=80",
+ "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=500&q=80",
+ "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&q=80",
+ "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=500&q=80"
+];
+
+const HALL_OF_FAME={
+ "2026":[{name:"Amina Njeri",category:"Creative Personality of the Year",gender:"woman"},{name:"David Kamau",category:"Entrepreneur of the Year",gender:"man"}],
+ "2025":[{name:"Sample Winner",category:"Music Personality of the Year",gender:"woman"},{name:"Sample Winner",category:"Innovator of the Year",gender:"man"}],
+ "2024":[{name:"Sample Winner",category:"Young Leader of the Year",gender:"woman"}],
+ "2023":[{name:"Sample Winner",category:"Business Leader of the Year",gender:"man"}]
+};
+
+const FAQS=[
+ {q:"What are the Pinnacle Excellence Awards Africa?",a:"Pinnacle Excellence Awards Africa is a digital awards platform celebrating excellence, talent and achievement across entertainment, creative, business, leadership, innovation and social impact across the African continent."},
+ {q:"Who can be nominated?",a:"Anyone whose work or achievement fits one of this year's published categories can be nominated by the public or the Academy."},
+ {q:"How do I nominate someone?",a:"Use the Nominate section on this page to submit a name, category and supporting details."},
+ {q:"How does voting work?",a:"Each vote costs KSH 10, paid via M-Pesa at the point of voting. Once payment is confirmed, your vote is added to the nominee's tally for that category."},
+ {q:"How many times can I vote?",a:"You may vote once per category per payment. Official rules on repeat voting will be published before voting opens."},
+ {q:"When is the ceremony?",a:"The ceremony date will be announced by Pinnacle Excellence Awards Africa."},
+ {q:"How are winners determined?",a:"Winners are determined through a combination of judging and public vote, following the published methodology."},
+ {q:"How can my organisation become a sponsor?",a:"Reach out through the partnership contact details in the footer to discuss sponsorship opportunities."}
+];
+
+function renderTicker(){
+  const items=[
+    ...NOMINEES.slice(0,6).map(n=>`<i class="fas fa-award"></i>${n.name} — ${n.category}`),
+    "Voting Is Live","24 Categories Open","Nominate Someone Today"
+  ];
+  const html=items.map(i=>`<span class="ticker-item">${i}</span>`).join('');
+  document.getElementById('tickerTrack').innerHTML=html+html;
+}
+
+function maxVotes(){return Math.max(...NOMINEES.map(n=>n.votes));}
+function nomineeCardHtml(n){
+  const pct=Math.round((n.votes/maxVotes())*100);
+  const already=votedCategories[n.category]===n.name;
+  const votingClosed=PINNACLE_CONFIG.edition.status!=='voting_open';
+  const avatar = getAvatar(n.gender);
+  return `
+    <div class="nominee-card wow fadeInUp">
+      <div class="img-wrap"><img src="${avatar}" alt="${n.name}, nominee for ${n.category}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MCcgaGVpZ2h0PSc4MCc+PHJlY3Qgd2lkdGg9JzgwJyBoZWlnaHQ9JzgwJyBmaWxsPScjMUUzQjJBJy8+PHRleHQgeD0nNDAnIHk9JzQ1JyBmb250LXNpemU9JzMyJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmaWxsPScjRkZFMDAwJyBmb250LWZhbWlseT0nc2Fucy1zZXJpZic+4pmC</svg>'"><span class="nominee-badge">${n.group}</span></div>
+      <div class="body">
+        <div class="cat">${n.category}</div>
+        <div class="name">${n.name}</div>
+        <p class="desc">${n.desc}</p>
+        <div class="vote-progress-wrap">
+          <div class="vote-progress-bar"><div class="vote-progress-fill" style="width:${pct}%"></div></div>
+          <div class="vote-progress-label">${n.votes} votes</div>
+        </div>
+        <button class="vote-btn ${already?'voted':''}" ${already||votingClosed?'disabled':''} data-nominee="${n.name}" data-category="${n.category}">${already?'Vote Submitted':'Vote — KSH '+PINNACLE_CONFIG.votePriceKsh}</button>
+      </div>
+    </div>`;
+}
+
+function cdMiniCardHtml(n){
+  const pct=Math.round((n.votes/maxVotes())*100);
+  const already=votedCategories[n.category]===n.name;
+  const votingClosed=PINNACLE_CONFIG.edition.status!=='voting_open';
+  const avatar = getAvatar(n.gender);
+  return `
+    <div class="cd-mini-card">
+      <div class="img-wrap"><img src="${avatar}" alt="${n.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MCcgaGVpZ2h0PSc4MCc+PHJlY3Qgd2lkdGg9JzgwJyBoZWlnaHQ9JzgwJyBmaWxsPScjMUUzQjJBJy8+PHRleHQgeD0nNDAnIHk9JzQ1JyBmb250LXNpemU9JzMyJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmaWxsPScjRkZFMDAwJyBmb250LWZhbWlseT0nc2Fucy1zZXJpZic+4pmC</svg>'"></div>
+      <div class="body">
+        <div class="name">${n.name}</div>
+        <div class="cd-mini-progress"><div class="cd-mini-progress-fill" style="width:${pct}%"></div></div>
+        <div class="cd-mini-votes">${n.votes} votes</div>
+        <button class="cd-mini-vote-btn ${already?'voted':''}" ${already||votingClosed?'disabled':''} data-nominee="${n.name}" data-category="${n.category}">${already?'Voted':'Vote KSH '+PINNACLE_CONFIG.votePriceKsh}</button>
+      </div>
+    </div>`;
+}
+
+function renderNominees(filter){
+  const list=NOMINEES.filter(n=>filter==='all'||n.group===filter);
+  const cardsHtml=list.map(nomineeCardHtml).join('');
+  document.getElementById('nomineeScrollTrack').innerHTML=cardsHtml+cardsHtml;
+  attachVoteHandlers();
+}
+
+function renderAllNomineesModal(){
+  const grid=document.getElementById('allNomineesGrid');
+  grid.innerHTML=NOMINEES.map(n=>`<div class="col-sm-6 col-lg-4">${nomineeCardHtml(n)}</div>`).join('');
+  attachVoteHandlers();
+}
+
+function renderRankings(){
+  document.getElementById('rankingList').innerHTML=RANKINGS.map((r,i)=>{
+    let mv='';
+    if(r.move==='up') mv=`<span class="rank-move up"><i class="fas fa-arrow-up"></i>${r.val}</span>`;
+    else if(r.move==='down') mv=`<span class="rank-move down"><i class="fas fa-arrow-down"></i>${r.val}</span>`;
+    else mv=`<span class="rank-move new">New</span>`;
+    const avatar = getAvatar(r.gender);
+    return `<div class="rank-row"><div class="rank-num">${String(i+1).padStart(2,'0')}</div><img class="rank-photo" src="${avatar}" alt="${r.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MCcgaGVpZ2h0PSc4MCc+PHJlY3Qgd2lkdGg9JzgwJyBoZWlnaHQ9JzgwJyBmaWxsPScjMUUzQjJBJy8+PHRleHQgeD0nNDAnIHk9JzQ1JyBmb250LXNpemU9JzMyJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmaWxsPScjRkZFMDAwJyBmb250LWZhbWlseT0nc2Fucy1zZXJpZic+4pmC</svg>'"><div><div class="rank-name">${r.name}</div><div class="rank-cat">${r.category}</div></div>${mv}</div>`;
+  }).join('');
+}
+
+function renderCategoryExplorer(){
+  const select=document.getElementById('categorySelect');
+  select.innerHTML=FLAT_CATEGORIES.map(c=>`<option value="${c.name}">${c.name} — ${c.group}</option>`).join('');
+  select.addEventListener('change',()=>selectCategory(select.value));
+
+  const track=document.getElementById('categoryExplorerList');
+  const rowsHtml=FLAT_CATEGORIES.map(c=>`<div class="category-pill-row" data-name="${c.name}"><span class="grp">${c.group}</span><span class="nm2">${c.name}</span></div>`).join('');
+  track.innerHTML=rowsHtml+rowsHtml;
+  track.querySelectorAll('.category-pill-row').forEach(row=>{
+    row.addEventListener('click',()=>selectCategory(row.dataset.name));
+  });
+
+  selectCategory(FLAT_CATEGORIES[0].name);
+}
+
+function selectCategory(name){
+  const cat=FLAT_CATEGORIES.find(c=>c.name===name);
+  if(!cat) return;
+  document.querySelectorAll('.category-pill-row').forEach(r=>r.classList.toggle('active', r.dataset.name===name));
+  const select=document.getElementById('categorySelect');
+  if(select.value!==name) select.value=name;
+
+  const noms=NOMINEES.filter(n=>n.category===name);
+  const panel=document.getElementById('categoryDetailPanel');
+  
+  if(noms.length === 0){
+    panel.innerHTML=`
+      <span class="grp2">${cat.group}</span>
+      <h3 class="font-display">${cat.name}</h3>
+      <p class="muted mb-0">${cat.desc}</p>
+      <div class="cd-nominee-scroll-outer" style="min-height:200px;display:flex;align-items:center;justify-content:center;margin-top:1.2rem;border:1px solid #EDF3EF;border-radius:4px;background:#FAFCFA;">
+        <p class="muted small text-center">No nominees for this category yet.</p>
+      </div>
+    `;
+    return;
+  }
+
+  const doubledNoms = [...noms, ...noms];
+  const cardsHtml = doubledNoms.map(cdMiniCardHtml).join('');
+  
+  panel.innerHTML=`
+    <span class="grp2">${cat.group}</span>
+    <h3 class="font-display">${cat.name}</h3>
+    <p class="muted mb-0">${cat.desc}</p>
+    <div class="cd-nominee-scroll-outer">
+      <div class="cd-nominee-track">
+        ${cardsHtml}
+      </div>
+    </div>
+  `;
+  attachVoteHandlers();
+}
+
+function renderJudges(){
+  document.getElementById('judgeGrid').innerHTML=JUDGES.map(j=>{
+    const avatar = getAvatar(j.gender);
+    return `
+    <div class="col-sm-6 col-lg-3"><div class="judge-card wow fadeInUp"><img src="${avatar}" alt="${j.name}, Pinnacle Excellence Academy judge" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MCcgaGVpZ2h0PSc4MCc+PHJlY3Qgd2lkdGg9JzgwJyBoZWlnaHQ9JzgwJyBmaWxsPScjMUUzQjJBJy8+PHRleHQgeD0nNDAnIHk9JzQ1JyBmb250LXNpemU9JzMyJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmaWxsPScjRkZFMDAwJyBmb250LWZhbWlseT0nc2Fucy1zZXJpZic+4pmC</svg>'"><h5>${j.name}</h5><div class="role">${j.role}</div><p>${j.bio}</p></div></div>
+  `}).join('');
+}
+
+function renderMethod(){
+  document.getElementById('methodList').innerHTML=METHOD_STEPS.map(s=>`<div class="method-step"><div class="method-num">${s.n}</div><div><h5>${s.t}</h5><p>${s.d}</p></div></div>`).join('');
+}
+
+function renderStories(){
+  document.getElementById('storyGrid').innerHTML=STORIES.map(s=>`
+    <div class="col-sm-6 col-lg-4"><div class="news-card wow fadeInUp"><img src="${s.img}" alt="${s.title}"><div class="news-body"><div class="tag">${s.tag}</div><h5>${s.title}</h5><p>${s.excerpt}</p><span class="btn-read">Read more</span></div></div></div>
+  `).join('');
+}
+
+function renderMoments(){
+  document.getElementById('momentsTrackA').innerHTML=MOMENTS_IMAGES.concat(MOMENTS_IMAGES).map(s=>`<div class="scroll-item"><img src="${s}" alt="Pinnacle Excellence Awards moment" loading="lazy"></div>`).join('');
+  document.getElementById('momentsTrackB').innerHTML=MOMENTS_B.concat(MOMENTS_B).map(s=>`<div class="scroll-item"><img src="${s}" alt="Pinnacle Excellence Awards moment" loading="lazy"></div>`).join('');
+}
+
+function renderHOF(year){
+  document.getElementById('hofGrid').innerHTML=(HALL_OF_FAME[year]||[]).map(w=>{
+    const avatar = getAvatar(w.gender);
+    return `
+    <div class="col-sm-6 col-lg-4"><div class="hof-winner wow fadeInUp"><img src="${avatar}" alt="${w.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc4MCcgaGVpZ2h0PSc4MCc+PHJlY3Qgd2lkdGg9JzgwJyBoZWlnaHQ9JzgwJyBmaWxsPScjMUUzQjJBJy8+PHRleHQgeD0nNDAnIHk9JzQ1JyBmb250LXNpemU9JzMyJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBmaWxsPScjRkZFMDAwJyBmb250LWZhbWlseT0nc2Fucy1zZXJpZic+4pmC</svg>'"><div><div class="cat">${w.category}</div><div class="nm">${w.name}</div></div></div></div>
+  `}).join('');
+}
+
+function renderEditionTabs(){
+  const years=Object.keys(HALL_OF_FAME);
+  const wrap=document.getElementById('editionTabs');
+  wrap.innerHTML=years.map((y,i)=>`<button class="edition-tab ${i===0?'active':''}" data-year="${y}">${y}</button>`).join('');
+  wrap.querySelectorAll('.edition-tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      wrap.querySelectorAll('.edition-tab').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      renderHOF(btn.dataset.year);
+    });
+  });
+  renderHOF(years[0]);
+}
+
+function renderFAQ(){
+  document.getElementById('faqList').innerHTML=FAQS.map(f=>`
+    <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)"><span>${f.q}</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer">${f.a}</div></div>
+  `).join('');
+}
+function toggleFaq(elm){
+  const answer=elm.nextElementSibling;
+  const isOpen=answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(a=>a.classList.remove('open'));
+  document.querySelectorAll('.faq-question').forEach(q=>q.classList.remove('open'));
+  if(!isOpen){answer.classList.add('open');elm.classList.add('open');}
+}
+
+let votedCategories={};
+let voteTotal=0;
+let pendingVote=null;
+
+function cleanupModals() {
+  // Remove any lingering Bootstrap modal backdrops
+  const backdrops = document.querySelectorAll('.modal-backdrop');
+  backdrops.forEach(b => b.remove());
+  document.body.classList.remove('modal-open');
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+}
+
+function attachVoteHandlers(){
+  document.querySelectorAll('.vote-btn, .cd-mini-vote-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const cat = this.dataset.category;
+      const name = this.dataset.nominee;
+      
+      if (votedCategories[cat]) {
+        showToast('You have already voted in this category.');
+        return;
+      }
+      if (PINNACLE_CONFIG.edition.status !== 'voting_open') {
+        showToast('Voting is not currently open for this category.');
+        return;
+      }
+      
+      pendingVote = { cat, name };
+      document.getElementById('payNomineeName').textContent = name;
+      document.getElementById('payCategoryName').textContent = cat;
+      document.getElementById('payPhone').value = '';
+      document.getElementById('payStatus').textContent = '';
+      
+      const confirmBtn = document.getElementById('payConfirmBtn');
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = 'Pay KSH ' + PINNACLE_CONFIG.votePriceKsh + ' & Vote';
+      
+      const payModal = new bootstrap.Modal(document.getElementById('payModal'));
+      payModal.show();
+      
+      // Cleanup when pay modal is hidden
+      document.getElementById('payModal').addEventListener('hidden.bs.modal', function() {
+        cleanupModals();
+        if (pendingVote && !document.getElementById('voteModal').classList.contains('show')) {
+          pendingVote = null;
+        }
+      }, { once: true });
+    });
+  });
+}
+
+document.getElementById('payConfirmBtn').addEventListener('click', function() {
+  if (!pendingVote) return;
+  
+  const phone = document.getElementById('payPhone').value.trim();
+  const statusEl = document.getElementById('payStatus');
+  
+  if (!/^0[17]\d{8}$/.test(phone)) {
+    statusEl.style.color = '#B23A3A';
+    statusEl.textContent = 'Enter a valid phone number, e.g. 0712345678.';
+    return;
+  }
+  
+  const confirmBtn = this;
+  confirmBtn.disabled = true;
+  confirmBtn.textContent = 'Processing Payment…';
+  statusEl.style.color = 'var(--muted)';
+  statusEl.textContent = 'Sending KSH ' + PINNACLE_CONFIG.votePriceKsh + ' payment request to ' + phone + '…';
+
+  setTimeout(() => {
+    const { cat, name } = pendingVote;
+    votedCategories[cat] = name;
+    voteTotal++;
+    
+    const nomineeObj = NOMINEES.find(n => n.name === name && n.category === cat);
+    if (nomineeObj) nomineeObj.votes++;
+
+    renderNominees(document.querySelector('.filter-pill.active')?.dataset.filter || 'all');
+    if (document.getElementById('allNomineesModal').classList.contains('show')) {
+      renderAllNomineesModal();
+    }
+    const activeCatRow = document.querySelector('.category-pill-row.active');
+    if (activeCatRow) selectCategory(activeCatRow.dataset.name);
+
+    document.getElementById('voteCount').textContent = voteTotal;
+    document.getElementById('voteFloat').classList.add('visible');
+
+    // Close pay modal
+    const payModal = bootstrap.Modal.getInstance(document.getElementById('payModal'));
+    if (payModal) {
+      payModal.hide();
+    }
+    
+    // Cleanup immediately
+    cleanupModals();
+    
+    confirmBtn.disabled = false;
+    confirmBtn.textContent = 'Pay KSH ' + PINNACLE_CONFIG.votePriceKsh + ' & Vote';
+
+    // Show success modal
+    document.getElementById('voteModalTitle').textContent = 'Payment Successful';
+    document.getElementById('voteModalText').textContent = 'Your KSH ' + PINNACLE_CONFIG.votePriceKsh + ' payment was confirmed and your vote for ' + name + ' in ' + cat + ' has been recorded. Thank you!';
+    
+    const voteModal = new bootstrap.Modal(document.getElementById('voteModal'));
+    voteModal.show();
+    
+    // Cleanup when success modal is hidden
+    document.getElementById('voteModal').addEventListener('hidden.bs.modal', function() {
+      cleanupModals();
+    }, { once: true });
+    
+    pendingVote = null;
+  }, 1600);
+});
+
+// Global cleanup for all Bootstrap modals
+$(document).on('hidden.bs.modal', '.modal', function () {
+  cleanupModals();
+});
+
+// Also cleanup when any modal is hidden via Bootstrap events
+document.querySelectorAll('.modal').forEach(modal => {
+  modal.addEventListener('hidden.bs.modal', function() {
+    cleanupModals();
+  });
+});
+
+document.getElementById('voteFloat')?.addEventListener('click', function() {
+  const cats = Object.keys(votedCategories);
+  showToast(cats.length ? 'You have voted in ' + cats.length + ' categor' + (cats.length === 1 ? 'y' : 'ies') + ' this session.' : 'No votes cast yet.');
+});
+
+function showToast(msg){
+  const t=document.getElementById('toastMoika');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+window.addEventListener('scroll', function() {
+  const nav = document.getElementById('mainNav');
+  if (window.scrollY > 40) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  if (window.scrollY > window.innerHeight * 0.9) {
+    scrollBtn.classList.add('visible');
+  } else {
+    scrollBtn.classList.remove('visible');
+  }
+});
+
+document.getElementById('scrollTopBtn').addEventListener('click', function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+let COUNTDOWN_TARGET = Date.now() + 3 * 24 * 60 * 60 * 1000;
+function initCountdown(){
+  function setText(id, val) {
+    const e = document.getElementById(id);
+    if (e) e.textContent = String(val).padStart(2, '0');
+  }
+  function tick() {
+    let diff = COUNTDOWN_TARGET - Date.now();
+    if (diff <= 0) {
+      COUNTDOWN_TARGET = Date.now() + 3 * 24 * 60 * 60 * 1000;
+      diff = COUNTDOWN_TARGET - Date.now();
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const label = document.getElementById('heroCountdownLabel');
+    if (label) label.textContent = d > 0 ? d + ' Day' + (d === 1 ? '' : 's') + ' To Go' : 'The Night Begins Soon';
+    setText('hero-cd-hrs', h);
+    setText('hero-cd-min', m);
+    setText('hero-cd-sec', s);
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+function initCounters(){
+  const counters = document.querySelectorAll('.stat-num');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const elm = entry.target;
+        const target = parseInt(elm.dataset.count, 10);
+        let current = 0;
+        const step = Math.max(1, Math.ceil(target / 50));
+        const run = function() {
+          current += step;
+          if (current >= target) {
+            elm.textContent = target;
+            return;
+          }
+          elm.textContent = current;
+          requestAnimationFrame(run);
+        };
+        run();
+        observer.unobserve(elm);
+      }
+    });
+  }, { threshold: .4 });
+  counters.forEach(c => observer.observe(c));
+}
+
+function initFilters(){
+  document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+      renderNominees(this.dataset.filter);
+    });
+  });
+}
+
+function initSearch(){
+  const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
+  const index = [
+    ...NOMINEES.map(n => ({ kind: 'Nominee', label: n.name, sub: n.category })),
+    ...FLAT_CATEGORIES.map(c => ({ kind: 'Category', label: c.name, sub: c.group })),
+    ...STORIES.map(s => ({ kind: 'Story', label: s.title, sub: s.tag }))
+  ];
+  input.addEventListener('input', function() {
+    const q = this.value.trim().toLowerCase();
+    if (!q) {
+      results.innerHTML = '';
+      return;
+    }
+    const matches = index.filter(i => i.label.toLowerCase().includes(q)).slice(0, 8);
+    results.innerHTML = matches.length ? matches.map(m => '<div class="search-result-item"><div class="k">' + m.kind + '</div><div>' + m.label + ' <span class="muted small">— ' + m.sub + '</span></div></div>').join('') : '<p class="muted small">No results found.</p>';
+  });
+}
+
+function initNominateForm(){
+  const form = document.getElementById('nominateForm');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+    showToast('Nomination submitted. Thank you for recognising excellence.');
+    this.reset();
+  });
+}
+
+document.getElementById('viewMoreNomineesBtn').addEventListener('click', function() {
+  renderAllNomineesModal();
+  new bootstrap.Modal(document.getElementById('allNomineesModal')).show();
+});
+
+function initScrollReveal(){
+  const targets = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      } else if (entry.boundingClientRect.top > 0) {
+        entry.target.classList.remove('revealed');
+      }
+    });
+  }, { threshold: .14, rootMargin: '0px 0px -8% 0px' });
+  targets.forEach(t => observer.observe(t));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderTicker();
+  renderNominees('all');
+  renderRankings();
+  renderCategoryExplorer();
+  renderJudges();
+  renderMethod();
+  renderStories();
+  renderMoments();
+  renderEditionTabs();
+  renderFAQ();
+  initFilters();
+  initSearch();
+  initNominateForm();
+  initCountdown();
+  initCounters();
+  initScrollReveal();
+  document.getElementById('yearNow').textContent = new Date().getFullYear();
+  new WOW({ live: false }).init();
+});
+</script>
+</body>
+</html>

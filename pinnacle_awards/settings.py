@@ -24,14 +24,6 @@ CSRF_TRUSTED_ORIGINS = [
     'https://*.railway.app',
 ]
 
-# If you need CORS headers (for API access from other domains)
-# Uncomment and install django-cors-headers if needed:
-# INSTALLED_APPS += ['corsheaders']
-# MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
-# CORS_ALLOWED_ORIGINS = [
-#     'https://pinnacle-awards-production.up.railway.app',
-# ]
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -76,9 +68,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pinnacle_awards.wsgi.application'
 
-# Database - Use PostgreSQL on Railway, SQLite for local development
+# Database - SQLite for local development, PostgreSQL for production
 import dj_database_url
 
+# Default to SQLite for local development
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

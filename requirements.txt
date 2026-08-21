@@ -10,7 +10,7 @@ dj-database-url>=2.0.0
 psycopg2-binary>=2.9.0
 requests>=2.31.0
 
-# These are dependencies that were installed automatically
+# These are dependencies 
 # but you can add them explicitly if needed:
 asgiref==3.12.1
 sqlparse==0.6.0
